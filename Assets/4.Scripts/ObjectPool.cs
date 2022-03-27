@@ -9,7 +9,7 @@ namespace Isometric
     {
         
         [SerializeField] private GameObject poolingObjectPrefab;
-        Queue<GrassPool> poolingObjectQueue = new Queue<GrassPool>();
+        Queue<GameObject> poolingObjectQueue = new Queue<GameObject>();
         protected override void Awake()
         {
             base.Awake();
@@ -22,14 +22,14 @@ namespace Isometric
                 poolingObjectQueue.Enqueue(CreateNewObject());
             }
         }
-        private GrassPool CreateNewObject()
+        private GameObject CreateNewObject()
         {
-            var newObj = Instantiate(poolingObjectPrefab).GetComponent<GrassPool>();
+            var newObj = Instantiate(poolingObjectPrefab);
             newObj.gameObject.SetActive(false);
             newObj.transform.SetParent(transform);
             return newObj;
         }
-        public static GrassPool GetObject()
+        public static GameObject GetObject()
         {
             if (Instance.poolingObjectQueue.Count > 0)
             {
@@ -46,7 +46,7 @@ namespace Isometric
                 return newObj;
             }
         }
-        public static void ReturnObject(GrassPool obj)
+        public static void ReturnObject(GameObject obj)
         {
             obj.gameObject.SetActive(false);
             obj.transform.SetParent(Instance.transform);

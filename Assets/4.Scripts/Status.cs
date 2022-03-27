@@ -26,17 +26,9 @@ namespace Isometric
                 else currentValue = value;
             }
         }
-
         private float currentValue;
 
-        void Start()
-        {
-
-        }
-        void Update()
-        {
-            
-        }
+      
 
         public void Initialize(float currentValue, float maxValue)
         {
