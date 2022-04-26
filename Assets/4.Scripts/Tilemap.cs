@@ -10,11 +10,11 @@ namespace Isometric
         
         private Vector3 tilemapCell = Vector3.zero;
         public Tilemap tileMap;
-        private Player player;
+        private PlayerController player;
         private Transform playerLocation;
         void Start()
         {
-            playerLocation = FindObjectOfType<Player>().transform;
+            playerLocation = FindObjectOfType<PlayerController>().transform;
         }
 
         // Update is called once per frame

@@ -9,7 +9,7 @@ namespace Isometric
     public class Enemy : Character
     {
         [SerializeField] private Transform target;
-        private Player_HP player_hp;
+        [SerializeField] private Enemy_HP enemy_hp;
 
         private NavMeshAgent agent;
 
@@ -41,7 +41,7 @@ namespace Isometric
         private float attackRange;
         public float enemyDamage;
         
-
+        
         public float AttackDelay { get => attackDelay; set => attackDelay = value; }
         public float AttackRange { get => attackRange; set => attackRange = value; }
         public NavMeshAgent Agent
@@ -74,7 +74,9 @@ namespace Isometric
         protected override void Start()
         {
             base.Start();
-            player_hp = target.gameObject.GetComponent<Player_HP>();
+
+            enemy_hp = GetComponent<Enemy_HP>();
+
             agent = GetComponent<NavMeshAgent>();
 
             agent.updateRotation = false;
@@ -89,18 +91,24 @@ namespace Isometric
             attackRange = 1f;
             detectionRange = 25f;
             attackDelay = 1f;
+            attackDuration = 0.1f;
 
         }
         protected override void Update()
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-            instantDirection = target.position - transform.position;
-            distance = instantDirection.sqrMagnitude;
-            direction = instantDirection.normalized;
             base.Update();
+            if (enemy_hp.IsAlive)
+            {
+                //살아있을 때만
+                // 이동방향이나 공격방향을 얻기 위한 코드
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                instantDirection = target.position - transform.position;
+                distance = instantDirection.sqrMagnitude;
+                direction = instantDirection.normalized;
+                //상태머신의 Update 함수 구현 
+                currentState.Update();
 
-
-            currentState.Update();
+            }
         }
 
         public int DetermineState()
@@ -140,12 +148,14 @@ namespace Isometric
             attackBox_Tran.localPosition = new Vector3(direction.x * 0.6f, direction.y * 0.6f, 0);
             agent.ResetPath();
             attackBox_Tran.gameObject.SetActive(true);
-            
+        }
+        protected override void AttackBox_Disable()
+        {
+            attackBox_Tran.gameObject.SetActive(false);
         }
         protected override void StopAttack()
         {
             base.StopAttack();
-            attackBox_Tran.gameObject.SetActive(false);
         }
     }
 

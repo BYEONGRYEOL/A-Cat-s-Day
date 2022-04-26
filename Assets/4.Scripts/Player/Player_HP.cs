@@ -12,14 +12,14 @@ namespace Isometric
         // Start is called before the first frame update
         void Start()
         {
-            base.Initialize(hp_max, hp_max);
+            base.Init(hp_max, hp_max);
         }
        
 
         public void HP_Changed(float changeValue)
         {
             MyCurrentValue += changeValue;
-            UI_Ingame_R.Instance.HP_bar(MyCurrentValue, MyMaxValue);
+            UI_Ingame_R.Instance.HP_barSetValue(MyCurrentValue, MyMaxValue);
         }
         
         

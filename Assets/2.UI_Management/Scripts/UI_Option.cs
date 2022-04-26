@@ -19,10 +19,9 @@ namespace Isometric.UI
         protected override void Awake()
         {
             base.Awake();
-            
-
         }
 
+        // 옵션 창이 열리면, 일시정지
         public void OpenMenu()
         {
             LoadData();
@@ -34,6 +33,11 @@ namespace Isometric.UI
             {
                 btn_Mute.gameObject.SetActive(true);
             }
+        }
+
+        public void OnSavePressed()
+        {
+            DataManager.Instance.Save();
         }
         
 
@@ -59,19 +63,21 @@ namespace Isometric.UI
             }
             BGM.Instance.Volume(volume);
         }
+        // 옵션창에서 뒤로가기 버튼을 누른다는 건 게임 재개를 뜻함 
         public override void OnBtnBackPressed()
         {
-            
+            GameManager.Instance.MyResume();
             //Debug.Log("DataManager.Instance.MusicVolume is" + DataManager.Instance.MusicVolume);
             if (DataManager.Instance != null)
             {
                 DataManager.Instance.Save();
             }
+            // 뒤로가기 이전에 구현해놔야 실행되어용
             base.OnBtnBackPressed();
-            
 
-            /*PlayerPrefs.Save();*/
             
+            /*PlayerPrefs.Save();*/
+
         }
 
         public void OnBtnUnMutePressed()
@@ -98,6 +104,10 @@ namespace Isometric.UI
             }
         }
         
+        public void OpenKeyBinds()
+        {
+            UI_KeyBinds.Open();
+        }
 
         
         public void LoadData()

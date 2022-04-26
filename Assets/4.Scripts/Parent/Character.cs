@@ -11,6 +11,8 @@ namespace Isometric
         protected Vector3 direction;
 
         protected float attackDelay;
+        protected float attackDuration;
+
         protected bool isAttacking = false;
         protected bool canMove = true;
         protected bool takeDamage = false;
@@ -80,12 +82,19 @@ namespace Isometric
             myAnimator.SetBool("isAttacking", isAttacking);
             
             Attack();
+            yield return new WaitForSeconds(attackDuration);
+
+            AttackBox_Disable();
             yield return new WaitForSeconds(attackDelay);
             StopAttack();
         }
         protected virtual void Attack()
         {
 
+        }
+        protected virtual void AttackBox_Disable()
+        {
+            
         }
 
         public virtual void TakeDamage()

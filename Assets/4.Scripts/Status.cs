@@ -30,7 +30,7 @@ namespace Isometric
 
       
 
-        public void Initialize(float currentValue, float maxValue)
+        public void Init(float currentValue, float maxValue)
         {
             MyMaxValue = maxValue;
             MyCurrentValue = currentValue;

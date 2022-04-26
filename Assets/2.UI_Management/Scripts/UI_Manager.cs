@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
+using UnityEngine.UI;
+using System;
+using UnityEngine.EventSystems;
 using Isometric.Utility;
+using TMPro;
 
 namespace Isometric.UI
 {
@@ -10,27 +14,30 @@ namespace Isometric.UI
     public class UI_Manager : SingletonDontDestroyMonobehavior<UI_Manager>
     {
         
-        [SerializeField] private UI_MainMenu mainMenuPrefab;
+        [SerializeField] private UI_MainMenu_old mainMenuPrefab;
         [SerializeField] private UI_Option optionPrefab;
-        
+        [SerializeField] private UI_KeyBinds keyBindsPrefab;
         [SerializeField] private UI_Ingame_R ingamePrefab_R;
         [SerializeField] private UI_About aboutPrefab;
-        [SerializeField] private UI_Login loginPrefab;
-
-
+        //[SerializeField] private UI_Login loginPrefab;
         [SerializeField] private Transform myMenuParent;
-
-        #region ΩÃ±€≈Ê 
         
-        #endregion ΩÃ±€≈Ê
+
+        
+
         private Stack<UI_Menu> myMenuStack = new Stack<UI_Menu>();
         
         protected override void Awake()
         {
-
             base.Awake();
             InitializeMenus();
         }
+
+        
+
+
+
+
 
         private void InitializeMenus()
         {
@@ -98,11 +105,11 @@ namespace Isometric.UI
             Debug.Log(menuName);
             if (menuName == "UI_Login")
             {
-                UI_Login.Instance.OpenMenu();
+                UI_Login_old.Instance.OpenMenu();
             }
-            else if (menuName == "UI_Menu")
+            else if (menuName == "UI_MainMenu")
             {
-                UI_MainMenu.Instance.OpenMenu();
+                UI_MainMenu_old.Instance.OpenMenu();
             }
             else if (menuName == "UI_Option")
             {
@@ -122,6 +129,10 @@ namespace Isometric.UI
             else if (menuName == "UI_About")
             {
                 UI_About.Instance.OpenMenu();
+            }
+            else if (menuName == "UI_KeyBinds")
+            {
+                UI_KeyBinds.Instance.OpenMenu();
             }
         }
         public void CloseMenu()

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyHitBox
   - PlayerHitBox
+  - KeyBind
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player
   - PlayerHitBox
   - EnemyHitBox
-  - 
+  - KeyBind
   - 
   - 
   - 
