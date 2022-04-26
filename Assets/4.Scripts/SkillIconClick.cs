@@ -28,8 +28,8 @@ namespace Isometric
         // Start is called before the first frame update
         void Start()
         {
-            Icon.sprite = UseableCollections.Instance.GetSpell(spellName).MyIcon;
-            Icon.color = Color.white;
+            //Icon.sprite = UseableCollections.Instance.GetSpell(spellName).MyIcon;
+            //Icon.color = Color.white;
         }
 
         // Update is called once per frame

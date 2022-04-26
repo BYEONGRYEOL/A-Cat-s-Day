@@ -413,11 +413,11 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack Layer
+  m_Name: AttackLayer
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6959992703764440658}
-    m_Position: {x: 300, y: 170, z: 0}
+    m_Position: {x: 340, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7283145007733412629}
     m_Position: {x: 340, y: 70, z: 0}
@@ -877,11 +877,11 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Idle_Layer
+    m_Name: IdleLayer
     m_StateMachine: {fileID: -3203178441174687455}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -893,7 +893,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Walk Layer
+    m_Name: WalkLayer
     m_StateMachine: {fileID: 2760004109845193710}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -905,14 +905,14 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Attack Layer
+    m_Name: AttackLayer
     m_StateMachine: {fileID: -3580235840274914502}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 0
+    m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}

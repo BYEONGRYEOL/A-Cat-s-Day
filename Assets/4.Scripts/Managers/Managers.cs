@@ -24,6 +24,7 @@ namespace Isometric
         void Awake()
         {
             Init();
+            KeyBind.Init();
         }
 
         void Update()

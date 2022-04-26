@@ -5,7 +5,7 @@ namespace Isometric
 {
     public interface IState
     {
-        void Enter(Enemy parent);
+        void Enter(Enemy_1 parent);
         void Update();
         void Exit();
 

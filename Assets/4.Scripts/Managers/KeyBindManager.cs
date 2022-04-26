@@ -62,14 +62,18 @@ namespace Isometric
             //save
 
         }
-        
+
         public void Init()
         {
+            KeyBinds = new Dictionary<string, KeyCode>();
+            ActionBinds = new Dictionary<string, KeyCode>();
+
             BindKey("UP", KeyCode.W);
             BindKey("DOWN", KeyCode.S);
             BindKey("RIGHT", KeyCode.D);
             BindKey("LEFT", KeyCode.A);
 
+            BindKey("JUMP", KeyCode.Space);
             BindKey("RUN", KeyCode.LeftShift);
             BindKey("CROUCH", KeyCode.LeftControl);
             BindKey("INTERACTION", KeyCode.G);

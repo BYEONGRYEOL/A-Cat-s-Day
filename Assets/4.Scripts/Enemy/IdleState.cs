@@ -6,8 +6,8 @@ namespace Isometric
 
     public class IdleState : IState
     {
-        private Enemy parent;
-        public void Enter(Enemy parent)
+        private Enemy_1 parent;
+        public void Enter(Enemy_1 parent)
         {
             Debug.Log(parent.Target.position);
             Debug.Log("Enter IdleState");

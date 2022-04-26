@@ -5,9 +5,9 @@ namespace Isometric
 {
     public class ChaseState : IState
     {
-        private Enemy parent;
+        private Enemy_1 parent;
         // Start is called before the first frame update
-        public void Enter(Enemy parent)
+        public void Enter(Enemy_1 parent)
         {
             Debug.Log("Enter ChaseState");
 
