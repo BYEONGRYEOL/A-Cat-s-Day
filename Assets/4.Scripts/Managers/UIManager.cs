@@ -12,7 +12,7 @@ namespace Isometric.UI
         Stack<UI_Popup> _popupStack = new Stack<UI_Popup>();
         UI_Scene _sceneUI = null;
 
-
+                
         public GameObject Root
         {
             get
@@ -102,7 +102,7 @@ namespace Isometric.UI
             
             return scene;
         }
-        public T ShowPopupUI<T>(string name = null) where T : UI_Popup
+        public T ShowPopupUI<T>(bool duplicatable = true, string name = null) where T : UI_Popup
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -111,6 +111,12 @@ namespace Isometric.UI
 
             GameObject go = Managers.Resource.Instantiate($"UI/Popup/{name}");
             T popup = Util.GetOrAddComponent<T>(go);
+            if(!duplicatable && _popupStack.Contains(popup))
+            {
+                //중복불가에다가 팝업ui가 이미 존재하면 안만들어
+                GameObject.Destroy(go);
+                return null;
+            }
             _popupStack.Push(popup);
 
             
@@ -119,7 +125,8 @@ namespace Isometric.UI
 
             return popup;
         }
-
+        
+        
         public void ClosePopupUI(UI_Popup popup)
         {
             if(_popupStack.Count == 0)
@@ -129,11 +136,12 @@ namespace Isometric.UI
 
             if(_popupStack.Peek() != popup)
             {
-                Debug.Log("Close Popup Failed!");
+                Debug.Log("Close late Popup Failed!"); 
             }
 
             ClosePopupUI();
         }
+        
 
         public void ClosePopupUI()
         {

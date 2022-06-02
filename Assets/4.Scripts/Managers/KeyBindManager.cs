@@ -83,40 +83,33 @@ namespace Isometric
             BindKey("ACTION_4", KeyCode.Alpha4);
 
 
-            if (DataManager.Instance != null)
-            {
-                DataManager.Instance.KeyBindKeysList = KeyBinds.Keys.ToList();
-                DataManager.Instance.ActionBindKeysList = ActionBinds.Keys.ToList();
-                DataManager.Instance.KeyBindValuesList = KeyBinds.Values.ToList();
-                DataManager.Instance.ActionBindValuesList = ActionBinds.Values.ToList();
-            }
+            
+            Managers.Data.settings.KeyBindKeys = KeyBinds.Keys.ToList();
+            Managers.Data.settings.ActionBindKeys = ActionBinds.Keys.ToList();
+            Managers.Data.settings.KeyBindValues = KeyBinds.Values.ToList();
+            Managers.Data.settings.ActionBindValues = ActionBinds.Values.ToList();
+            
         }
         public void SaveData()
         {
-            if (DataManager.Instance != null)
-            {
-                DataManager.Instance.KeyBindKeysList = KeyBinds.Keys.ToList();
-                DataManager.Instance.ActionBindKeysList = ActionBinds.Keys.ToList();
-                DataManager.Instance.KeyBindValuesList = KeyBinds.Values.ToList();
-                DataManager.Instance.ActionBindValuesList = ActionBinds.Values.ToList();
-            }
-            //Debug.Log("DataManager.Instance.MusicVolume is" + DataManager.Instance.MusicVolume);
-            if (DataManager.Instance != null)
-            {
-                DataManager.Instance.Save();
-            }
+
+            Managers.Data.settings.KeyBindKeys = KeyBinds.Keys.ToList();
+            Managers.Data.settings.ActionBindKeys = ActionBinds.Keys.ToList();
+            Managers.Data.settings.KeyBindValues = KeyBinds.Values.ToList();
+            Managers.Data.settings.ActionBindValues = ActionBinds.Values.ToList();
+
+
+            Managers.Data.Save();
+            
         }
         public void LoadData()
         {
             KeyBinds = new Dictionary<string, KeyCode>();
             ActionBinds = new Dictionary<string, KeyCode>();
-            if (DataManager.Instance == null)
-            {
-                return;
-            }
-            DataManager.Instance.Load();
 
-            if (DataManager.Instance.KeyBindKeysList.Count == 0)
+            Managers.Data.Load();
+
+            if (Managers.Data.settings.KeyBindKeys.Count == 0)
             {
                 Debug.Log("키 설정 초기화 실행");
                 Init();
@@ -125,10 +118,10 @@ namespace Isometric
             {
                 Debug.Log("데이터 로드");
 
-                keyBindKeys = DataManager.Instance.KeyBindKeysList;
-                keyBindValues = DataManager.Instance.KeyBindValuesList;
-                actionBindKeys = DataManager.Instance.ActionBindKeysList;
-                actionBindValues = DataManager.Instance.ActionBindValuesList;
+                keyBindKeys = Managers.Data.settings.KeyBindKeys;
+                keyBindValues = Managers.Data.settings.KeyBindValues;
+                actionBindKeys = Managers.Data.settings.ActionBindKeys;
+                actionBindValues = Managers.Data.settings.ActionBindValues;
 
 
                 for (int i = 0; i < keyBindKeys.Count; i++)

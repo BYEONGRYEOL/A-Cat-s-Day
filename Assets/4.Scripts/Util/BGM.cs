@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Isometric;
@@ -7,17 +7,17 @@ using Isometric.Utility;
 public class BGM : SingletonDontDestroyMonobehavior<BGM>
 {
     private AudioSource audioSource;
-    /*private static BGM instance;
+    *//*private static BGM instance;
     public static BGM Instance { get { return instance; } }
     private void OnDestroy()
     {
         if (instance == this)
             instance = null;
-    }*/
+    }*//*
     protected override void Awake()
     {
         base.Awake();
-       /* if (instance != null)
+       *//* if (instance != null)
         {
             Destroy(this);
         }
@@ -28,17 +28,17 @@ public class BGM : SingletonDontDestroyMonobehavior<BGM>
         if (Instance == this)
         {
             DontDestroyOnLoad(gameObject);
-        }*/
+        }*//*
     }
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        if (DataManager.Instance.Mute)
+        if (DataManager_old.Instance.Mute)
         {
             Mute();
         }
-        Debug.Log("Loading Volume" + DataManager.Instance.MusicVolume);
-        Volume(DataManager.Instance.MusicVolume);
+        Debug.Log("Loading Volume" + DataManager_old.Instance.MusicVolume);
+        Volume(DataManager_old.Instance.MusicVolume);
 
     }
 
@@ -71,3 +71,4 @@ public class BGM : SingletonDontDestroyMonobehavior<BGM>
         audioSource.Stop();
     }
 }
+*/

@@ -1,6 +1,93 @@
 public class Enums 
 {
     // Enum 저장소
+    public enum State
+    {
+        //공용 state
+        None,
+        Die,
+        Idle,
+        Move,
+        Run,
+        TakeDamage,
+        Attack_1,
+        Attack_2,
+        Attack_3,
+
+        Dodge,
+        Attack_Jump,
+        Attack_Run,
+        Interaction,
+        Climbing,
+        Crouch
+    }
+
+    public enum AttackType
+    {
+        AD,
+        AP,
+        Fixed
+    }
+
+    public enum ItemType { 
+        None,
+        Weapon,
+        Armor,
+        Consumable,
+        Useable
+    }
+    
+    public enum WeaponType
+    {
+        None,
+        ToeNail
+    }
+    public enum ArmorType
+    {
+        None,
+        Helmet,
+        Armor,
+        Boots,
+    }
+    public enum Consumable
+    {
+        None,
+        Potion,
+        Food
+    }
+
+    public enum Useable
+    {
+        None,
+        Scroll,
+        ThrowingWeapon,
+        Crops
+    }
+
+    public enum BuffType
+    {
+
+    }
+
+    public enum ObjectType
+    {
+        Unknown,
+        Player,
+        Interactable,
+        Enemy,
+    }
+    public enum AnimationLayer
+    {
+        IdleLayer = 0,
+        WalkLayer = 1,
+        AttackLayer = 2,
+        HitDamageLayer = 3
+    }
+    public enum Layer
+    {
+        InterActive,
+        UI,
+    }
 
     public enum Key
     {
@@ -16,6 +103,7 @@ public class Enums
         ACTION_3,
         ACTION_4
     }
+
 
     public enum UI
     {
@@ -50,6 +138,8 @@ public class Enums
     public enum MouseEvent 
     {
         Press,
+        PointerDown,
+        PointerUp,
         Click
     }
 

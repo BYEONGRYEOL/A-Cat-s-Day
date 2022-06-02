@@ -12,9 +12,8 @@ namespace Isometric
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHitBox"))
             {
-                Enemy_HP enemy_hp = collision.gameObject.GetComponentInParent<Enemy_HP>();
-                enemy_hp.HP_Changed(-attackDamage);
-                Debug.Log("Attack Box ÀÎ½Ä");
+                EnemyController hittedenemy = collision.GetComponentInParent<EnemyController>();
+                GetComponentInParent<PlayerController>().OnADHit(hittedenemy);
                 
                 
             }

@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 6913924258132697121}
   - component: {fileID: 7768604432200145443}
   - component: {fileID: 6913924258132697119}
-  - component: {fileID: 6913924258132697118}
+  - component: {fileID: 9148975262163566031}
   - component: {fileID: 1348165364884297107}
   m_Layer: 7
   m_Name: Player
@@ -350,15 +350,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e451dd94bafc07241b02683db312881b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalDirection: {x: 0, y: 0, z: 0}
-  walkSpeed: 3
-  runSpeed: 5
-  crouchSpeed: 1
   jumpForce: 5
   crouchPosY: 0
   theCamera: {fileID: 0}
   attackBox_Tran: {fileID: 2783856606633277481}
---- !u!114 &6913924258132697118
+  originalDirection: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  state: 1
+--- !u!114 &9148975262163566031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,11 +366,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6913924258132697124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a91a82b01e1444a800ca6e61553714, type: 3}
+  m_Script: {fileID: 11500000, guid: 80226b3377eebab4490a5b11c9a7fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFill: 0
-  hp_max: 100
 --- !u!95 &1348165364884297107
 Animator:
   serializedVersion: 3

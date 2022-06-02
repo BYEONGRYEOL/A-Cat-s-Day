@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using Isometric.Data;
 namespace Isometric.UI
 {
 
@@ -28,6 +29,9 @@ namespace Isometric.UI
         protected override void Init()
         {
             base.Init();
+            
+            
+
 
             // UI산하에 버튼과 Tmpro가 있음을 Dictionary로 받아 알고있도록
             Bind<Button>(typeof(Buttons));

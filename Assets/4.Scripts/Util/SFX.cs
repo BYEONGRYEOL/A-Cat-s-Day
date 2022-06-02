@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Isometric;
@@ -19,12 +19,12 @@ public class SFX: SingletonDontDestroyMonobehavior<SFX>
     {
         base.Awake();
         audioSource = GetComponent<AudioSource>();
-        if (DataManager.Instance.Mute)
+        if (DataManager_old.Instance.Mute)
         {
             Mute();
         }
-        Debug.Log("Loading Volume" + DataManager.Instance.SFXVolume);
-        Volume(DataManager.Instance.SFXVolume);
+        Debug.Log("Loading Volume" + DataManager_old.Instance.SFXVolume);
+        Volume(DataManager_old.Instance.SFXVolume);
 
     }
 
@@ -88,3 +88,4 @@ public class SFX: SingletonDontDestroyMonobehavior<SFX>
         audioSource.Stop();
     }
 }
+*/

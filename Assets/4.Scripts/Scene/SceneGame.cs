@@ -6,6 +6,10 @@ namespace Isometric
 
     public class SceneGame : SceneBase
     {
+        enum PopUpKeys
+        {
+            
+        }
         protected override void Init()
         {
             base.Init();
@@ -26,7 +30,7 @@ namespace Isometric
         // Update is called once per frame
         void Update()
         {
-
+            
         }
     }
 

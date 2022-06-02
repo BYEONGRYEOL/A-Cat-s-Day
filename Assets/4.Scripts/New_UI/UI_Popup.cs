@@ -9,7 +9,7 @@ namespace Isometric.UI
         // Start is called before the first frame update
         void Start()
         {
-
+            Init();
         }
 
         public virtual void Init()

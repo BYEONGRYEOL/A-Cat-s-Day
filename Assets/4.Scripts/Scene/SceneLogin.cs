@@ -10,7 +10,7 @@ namespace Isometric
     {
         public override void Clear()
         {
-            DataManager.Instance.Load();
+            Managers.Data.Load();
         }
 
         // Start is called before the first frame update

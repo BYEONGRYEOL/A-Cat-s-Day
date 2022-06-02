@@ -9,18 +9,21 @@ using System.Reflection;
 
 namespace Isometric.Data 
 {
+
     public class JsonSaver
     {
         //저장할 파일 이름
-        private static readonly string filename = "Isometric.sav";
+        
         //savefile의 이름을 리턴하는 함수
-        public static string GetSaveFilename()
+        public static string GetSaveFilename(string filename)
         {
-            
-            return Application.persistentDataPath + "/" + filename;
+            return Application.persistentDataPath + "/" + filename + ".sav";
         }
+        public void Save(Dictionary<int, Data> dictionary, string filename)
+        {
 
-        public void Save(SaveData data)
+        }
+        public void Save(Data data, string filename)
         {
             //해쉬값 선언
             String hashValue = String.Empty;
@@ -31,10 +34,10 @@ namespace Isometric.Data
             // 
             json = JsonUtility.ToJson(data);
             
-            string saveFilename = GetSaveFilename();
+            string path = GetSaveFilename(filename);
             //SAVEFILE 생성
-            FileStream filestream = new FileStream(saveFilename, FileMode.Create);
-            Debug.Log(saveFilename);
+            FileStream filestream = new FileStream(path, FileMode.Create);
+            Debug.Log(path);
             //생성한 SaveFile에 saveData를 작성하는 StreamWriter를 선언, 이전에 json데이터로 변경한 json 문자열을 쓴다. (json 문자열은 Dictionary 내용을 string 형식으로 적은것과 비슷함)
             using (StreamWriter writer = new StreamWriter(filestream))
             {
@@ -42,10 +45,10 @@ namespace Isometric.Data
             }
         }
         // 데이터 로드
-        public bool Load(SaveData data)
+        public bool Load(Data data, string filename)
         {
             //Isometric.sav 파일을 loadfilename으로 받아서
-            string loadFilename = GetSaveFilename();
+            string loadFilename = GetSaveFilename(filename);
             //해당 파일이 이미 존재한다면, 즉 세이브한 적이 있다면.
             if (File.Exists(loadFilename))
             {
@@ -71,15 +74,15 @@ namespace Isometric.Data
             return false;
         }
         //데이터 파일 삭제 코드
-        public void Delete()
+        public void Delete(string filename)
         {
-            File.Delete(GetSaveFilename());
+            File.Delete(GetSaveFilename(filename));
         }
         //데이터의 SHA256 코드 비교를 통해 hash값의 변경이 없었는지 check
         private bool CheckData(string json)
         {
             //내가 로드한 데이터와 
-            SaveData tempSaveData = new SaveData();
+            Settings tempSaveData = new Settings();
             string oldHash = GetSHA256(json);
             //로드한 데이터를 다시금 SHA256코드로 해시화 한 결과의 해시코드를 비교했을 때,
             JsonUtility.FromJsonOverwrite(json, tempSaveData);

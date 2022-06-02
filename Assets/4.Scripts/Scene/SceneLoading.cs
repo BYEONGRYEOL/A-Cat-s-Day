@@ -20,6 +20,7 @@ namespace Isometric
 
         public override void Clear()
         {
+            //DataManager는 로딩 씬이 넘어가면 Dict를 갖고있음
             
         }
     }
