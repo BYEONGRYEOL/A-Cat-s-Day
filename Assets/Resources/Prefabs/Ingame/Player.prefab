@@ -278,7 +278,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ce75f9e34a9f24a478314351806e224c, type: 3}
+  m_Sprite: {fileID: 8574795063089225381, guid: 435d7eb5dde54184da3d314e15b74543, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -350,13 +350,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e451dd94bafc07241b02683db312881b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalDirection: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
   jumpForce: 5
   crouchPosY: 0
   theCamera: {fileID: 0}
   attackBox_Tran: {fileID: 2783856606633277481}
-  originalDirection: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  state: 1
 --- !u!114 &9148975262163566031
 MonoBehaviour:
   m_ObjectHideFlags: 0
