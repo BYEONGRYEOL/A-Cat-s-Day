@@ -35,9 +35,13 @@ namespace Isometric.Data
         public Dictionary<int, PlayerStat> PlayerStatDict { get; private set; } = new Dictionary<int, PlayerStat>();
         public Dictionary<int, EnemyStat> EnemyStatDict { get; private set; } = new Dictionary<int, EnemyStat>();
         public Dictionary<int, ItemInfo> ItemInfoDict { get; private set; } = new Dictionary<int, ItemInfo>();
+        public Dictionary<int, WeaponInfo> WeaponInfoDict { get; private set; } = new Dictionary<int, WeaponInfo>();
+        public Dictionary<int, ArmorInfo> ArmorInfoDict { get; private set; } = new Dictionary<int, ArmorInfo>();
+        public Dictionary<int, ConsumableInfo> ConsumableInfoDict { get; private set; } = new Dictionary<int, ConsumableInfo>();
+        public Dictionary<int, UseableInfo> UseableInfo { get; private set; } = new Dictionary<int, UseableInfo>();
+        public Dictionary<int, ItemDB> ItemDBDict { get; private set; } = new Dictionary<int, ItemDB>();
 
 
-        public List<ItemDB> ItemDBList { get; private set; } = new List<ItemDB>();
         public void Init()
         {
             settings = new Settings();
@@ -95,11 +99,12 @@ namespace Isometric.Data
             PlayerStatDict = LoadJson<PlayerStatData, int, PlayerStat>("PlayerStatjson").MakeDict();
             EnemyStatDict = LoadJson<EnemyStatData, int, EnemyStat>("EnemyStatjson").MakeDict();
             ItemInfoDict = LoadJson<ItemInfoData, int, ItemInfo>("ItemInfojson").MakeDict();
+            ItemDBDict = LoadJson<ItemDBData, int, ItemDB>("ItemDBjson").MakeDict();
         }
 
         public void MakeJsontoList()
         {
-            ItemDBList = LoadJson<ItemData, ItemDB>("ItemDBjson").MakeList();
+            // 리스트 형식의 게임 리소스데이터를 들고있으려면 이걸실행
         }
         //Resouce/Data/여기에 데이터를 받아올 해당 CSV 파일이 있어야함
         Loader LoadJson<Loader, list>(string path) where Loader : ILoaderList<list>

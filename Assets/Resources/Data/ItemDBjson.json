@@ -1,11 +1,22 @@
 {
-  "ItemDB"
-    : [
+  "WeaponDB": [
     {
-      "id": "1",
-      "name": "100",
-      "description":  "item test",
-      "count": "1",
-      "slot": "10"
+      
     }
-  ]}
+  ],
+  "ArmorDB": [
+    {
+      
+    }
+  ],
+  "ConsumableDB": [
+    {
+      
+    }
+  ],
+  "UseableDB": [
+    {
+      
+    }
+  ]
+}

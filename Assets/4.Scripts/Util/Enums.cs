@@ -30,43 +30,44 @@ public class Enums
     }
 
     public enum ItemType { 
-        None,
-        Weapon,
-        Armor,
-        Consumable,
-        Useable
+        None = 0,
+        Weapon = 1,
+        Armor = 2,
+        Consumable = 3,
+        Useable = 4
     }
     
     public enum WeaponType
     {
-        None,
-        ToeNail
+        None = 0,
+        ToeNail = 1,
+        Sword = 2
     }
     public enum ArmorType
     {
-        None,
-        Helmet,
-        Armor,
-        Boots,
+        None = 0,
+        Helmet = 1,
+        Armor = 2,
+        Boots = 3,
     }
-    public enum Consumable
+    public enum ConsumableType
     {
-        None,
-        Potion,
-        Food
+        None = 0 ,
+        Potion = 1,
+        Food = 2
     }
 
-    public enum Useable
+    public enum UseableType
     {
-        None,
-        Scroll,
-        ThrowingWeapon,
-        Crops
+        None = 0,
+        Scroll = 1,
+        ThrowingWeapon = 2,
+        Crops = 3
     }
 
     public enum BuffType
     {
-
+        None = 0
     }
 
     public enum ObjectType
