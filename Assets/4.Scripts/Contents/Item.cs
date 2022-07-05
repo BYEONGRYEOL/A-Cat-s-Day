@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Isometric.Data
 {
+<<<<<<< HEAD
     public struct ItemInfos
     {
         public ItemInfo itemInfo;
@@ -18,6 +19,16 @@ namespace Isometric.Data
         public int ItemTemplateId { get => itemDBInfo.itemTemplateid; set => itemDBInfo.itemTemplateid = value; }
         
         public int Count { get => itemDBInfo.count; set => itemDBInfo.count = value; }
+=======
+    public class Item
+    {
+        public ItemDB itemDBInfo { get; } = new ItemDB();
+
+        public int ItemDbId { get => itemDBInfo.itemDbid; set => itemDBInfo.itemDbid = value; }
+        public int ItemTemplateId { get => itemDBInfo.itemTemplateid; set => itemDBInfo.itemTemplateid = value; }
+        public int Count { get => itemDBInfo.count; set => itemDBInfo.count = value; }
+
+>>>>>>> 03113eccbaf095a8b52cc804a6fe5aa3ca7d7ea3
         public Enums.ItemType ItemType { get; private set; }
         public bool Stackable { get; protected set; }
 
@@ -25,6 +36,7 @@ namespace Isometric.Data
         {
             ItemType = itemType;
         }
+<<<<<<< HEAD
         public static void CheckItem(int templateID)
         {
             
@@ -69,6 +81,11 @@ namespace Isometric.Data
     }
 
     //클라이언트가 들고있는거
+=======
+
+    }
+
+>>>>>>> 03113eccbaf095a8b52cc804a6fe5aa3ca7d7ea3
     public class Weapon : Item 
     {
         public Enums.WeaponType WeaponType { get; private set; }
@@ -94,6 +111,7 @@ namespace Isometric.Data
                 WeaponType = newData.weaponType;
                 Attack = newData.attack;
                 Stackable = false;
+<<<<<<< HEAD
 
             }
         }
@@ -172,4 +190,10 @@ namespace Isometric.Data
             Stackable = false;
         }
     }
+=======
+            }
+        }
+    }
+    
+>>>>>>> 03113eccbaf095a8b52cc804a6fe5aa3ca7d7ea3
 }

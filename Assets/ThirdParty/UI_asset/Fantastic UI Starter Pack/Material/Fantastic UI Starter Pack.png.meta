@@ -408,7 +408,10 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+<<<<<<< HEAD
   ignoreMasterTextureLimit: 0
+=======
+>>>>>>> 03113eccbaf095a8b52cc804a6fe5aa3ca7d7ea3
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -3173,6 +3176,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     nameFileIdTable:
       Fantastic UI Starter Pack_22: 21300044
       Fantastic UI Starter Pack_29: 21300058
@@ -3302,6 +3306,8 @@ TextureImporter:
       Fantastic UI Starter Pack_35: 21300070
       Fantastic UI Starter Pack_1: 21300002
       Fantastic UI Starter Pack_65: 21300130
+=======
+>>>>>>> 03113eccbaf095a8b52cc804a6fe5aa3ca7d7ea3
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
