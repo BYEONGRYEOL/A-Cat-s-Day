@@ -12,7 +12,7 @@ namespace Isometric.UI
             Init();
         }
 
-        public virtual void Init()
+        public override void Init()
         {
             Managers.UI.SetCanvas(gameObject, true);
         }

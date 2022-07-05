@@ -21,6 +21,7 @@ namespace Isometric
         PoolManager _pool = new PoolManager();
         TimeManager _time = new TimeManager();
         GameManager _game = new GameManager();
+        InventoryManager _inven = new InventoryManager();
 
         public static KeyBindManager KeyBind { get { return Instance._keyBind; } }
         public static InputManager Input { get { return Instance._input; } }
@@ -31,6 +32,7 @@ namespace Isometric
         public static PoolManager Pool { get { return Instance._pool; } }
         public static TimeManager Time { get { return Instance._time; } }
         public static GameManager Game { get { return Instance._game; } }
+        public static InventoryManager Inven { get { return Instance._inven; } }
         void Awake()
         {
             Init();
@@ -66,6 +68,7 @@ namespace Isometric
                 
                 instance._keyBind.Init();
 
+                instance._inven.Init();
                 
             }
         }

@@ -9,8 +9,7 @@ namespace Isometric.UI
         private static UI_Scene instance;
         public static UI_Scene Instance { get => instance; set => instance = value; }
         
-        
-        protected virtual void Init()
+        public override void Init()
         {
             if (instance != null)
             {

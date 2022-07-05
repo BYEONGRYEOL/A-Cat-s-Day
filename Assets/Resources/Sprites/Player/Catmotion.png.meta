@@ -60,6 +60,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -400,6 +401,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Catmotion_6: -8224361147863673676
+      Catmotion_9: 8574795063089225381
+      Catmotion_0: -7764823109559064940
+      Catmotion_11: -4803095734962923037
+      Catmotion_2: -1412365113289575474
+      Catmotion_10: 8798357032839099677
+      Catmotion_3: 6928761105745461016
+      Catmotion_1: 8779502733933703578
+      Catmotion_5: 3359165085668723119
+      Catmotion_8: 5088067386615876624
+      Catmotion_4: -4952852061476116548
+      Catmotion_7: 4587551119024915954
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

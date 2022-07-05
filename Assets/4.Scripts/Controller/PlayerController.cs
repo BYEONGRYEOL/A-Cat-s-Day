@@ -36,7 +36,7 @@ namespace Isometric
         GameObject target;
         protected float attackDelay;
         protected float attackDuration;
-        private Animator myAnimator;
+        
 
         #endregion
 

@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -328,6 +329,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      TestDongeonTile_4: -2072354079628986807
+      TestDongeonTile_0: 6010648658173670504
+      TestDongeonTile_8: 6114592139019467261
+      TestDongeonTile_3: 8627604150282498939
+      TestDongeonTile_7: 1486309716309421777
+      TestDongeonTile_2: -9153129101500370639
+      TestDongeonTile_5: -8998119652793771498
+      TestDongeonTile_1: -6632881353477687699
+      TestDongeonTile_6: -2798698353679461816
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

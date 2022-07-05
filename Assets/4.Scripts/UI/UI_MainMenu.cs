@@ -26,7 +26,7 @@ namespace Isometric.UI
         {
             Init();
         }
-        protected override void Init()
+        public override void Init()
         {
             base.Init();
             
