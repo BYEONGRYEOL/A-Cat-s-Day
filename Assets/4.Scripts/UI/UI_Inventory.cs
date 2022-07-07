@@ -10,7 +10,7 @@ namespace Isometric.UI
 {
     public class UI_Inventory : UI_Base
     {
-        public List<UI_Inventory_Slot> Slots { get; } = new List<UI_Inventory_Slot>();
+        public List<UI_Inventory_Slot> Slots { get; set; } = new List<UI_Inventory_Slot>();
 
 
         private void Awake()
@@ -25,10 +25,18 @@ namespace Isometric.UI
                 Destroy(child.gameObject);
 
             //인벤토리 슬롯의 총 개수를 임의로 20개로 정함
-            for ( int i = 0; i < 20; i++)
+            for ( int i = 1; i < 21; i++)
             {
                 GameObject go = Managers.Resource.Instantiate("UI/Inventory_Slot");
                 UI_Inventory_Slot slot = go.GetComponent<UI_Inventory_Slot>();
+                if (Managers.Data.ItemDBDict.ContainsKey(i))
+                {
+                    slot.HasItem = true;
+                }
+                else
+                {
+                    slot.HasItem = false;
+                }
                 Slots.Add(slot);
             }
         }

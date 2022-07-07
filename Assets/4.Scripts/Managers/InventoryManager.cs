@@ -17,19 +17,34 @@ namespace Isometric.Data
         }
         public void Init()
         {
+            LoadItem();
+        }
 
+        public int? FindEmptySlot()
+        {
+            var dbIDs = Items.Keys;
+            for(int i = 1; i < 21; i++)
+            {
+                if (!dbIDs.Contains(i))
+                {
+                    return i;
+                }
+            }
+            return null;
         }
         public void LoadItem()
         {
-            foreach (KeyValuePair<int, Item> kv in Items)
+            foreach (ItemDB itemDB in Managers.Data.ItemDBDict.Values)
             {
-                Items.Add(kv.Key, kv.Value);
+                Add(Item.GetItemFromDB(itemDB));
             }
+
             Debug.Log(Items.Count + "개의 아이템 인벤토리에 로드");
         }
         public void Add(Item item)
         {
             Items.Add(item.ItemDbId, item);
+            
         }
 
         public Item Get(int itemDbid)
