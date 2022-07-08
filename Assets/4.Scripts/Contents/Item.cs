@@ -16,8 +16,8 @@ namespace Isometric.Data
         public ItemDB itemDB { get; } = new ItemDB();
         public ItemInfo itemInfo { get; } = new ItemInfo();
 
-        public int ItemDbId { get => itemDB.itemDbid; set => itemDB.itemDbid = value; }
-        public int ItemTemplateId { get => itemDB.itemTemplateid; set => itemDB.itemTemplateid = value; }
+        public int ItemDbId { get => itemDB.itemDbID; set => itemDB.itemDbID = value; }
+        public int ItemTemplateId { get => itemDB.itemTemplateID; set => itemDB.itemTemplateID = value; }
         public int Count { get => itemDB.count; set => itemDB.count = value; }
         public string Name { get => itemInfo.name; set => itemInfo.name = value; }
         public string Description { get => itemInfo.description; set => itemInfo.description = value; } 
@@ -42,7 +42,7 @@ namespace Isometric.Data
                 Debug.Log("templateID에 해당하는 Item Info를 찾을 수 없음");
             }
 
-            infos.itemDB = Managers.Data.ItemDBDict.FirstOrDefault(x => x.Value.itemTemplateid == templateID && x.Value.count < infos.itemInfo.maxCount).Value;
+            infos.itemDB = Managers.Data.ItemDBDict.FirstOrDefault(x => x.Value.itemTemplateID == templateID && x.Value.count < infos.itemInfo.maxCount).Value;
               
             if (infos.itemDB.Equals(default(KeyValuePair)))
             {
@@ -65,7 +65,7 @@ namespace Isometric.Data
 
             foreach(KeyValuePair<int, ItemDB> kv  in Managers.Data.ItemDBDict)
             {
-                if(kv.Value.itemTemplateid == templateID && kv.Value.count < infos.itemInfo.maxCount)
+                if(kv.Value.itemTemplateID == templateID && kv.Value.count < infos.itemInfo.maxCount)
                 {
                     if(kv.Value.count + count < infos.itemInfo.maxCount)
                     {
@@ -74,7 +74,6 @@ namespace Isometric.Data
                     }
 
                     //다른경우에도 써야한다.
-
                 }
             }
             return null;
@@ -90,13 +89,34 @@ namespace Isometric.Data
                 Debug.Log(iteminfo);
                 return null;
             }
-            if(Managers.Inven.FindEmptySlot() == null)
+            int? slot =  Managers.Inven.FindEmptySlot();
+            if(slot == null)
             {
                 Debug.Log("인벤토리에 빈공간이 없음");
                 return null;
             }
 
             //TODO
+            //FindEmptySlot의 반환값이 dbid와 동일하므로, 그대로 key로 받아서 딕셔너리에 add
+            Item item = null;
+            switch (iteminfo.itemType)
+            {
+                case Enums.ItemType.Weapon:
+                    item = new Weapon(iteminfo.itemTemplateid);
+                    break;
+                case Enums.ItemType.Armor:
+                    item = new Armor(iteminfo.itemTemplateid);
+                    break;
+                case Enums.ItemType.Consumable:
+                    item = new Consumable(iteminfo.itemTemplateid);
+                    break;
+                case Enums.ItemType.Useable:
+                    item = new Useable(iteminfo.itemTemplateid);
+                    break;
+            }
+
+            //newItemDB.itemDbid = 새로운 dbid 생성하는 함수 필요
+
             return null;
             
 
@@ -155,7 +175,7 @@ namespace Isometric.Data
             }
             itemDB.name = item.Name;
             itemDB.count = item.Count;
-            itemDB.itemDbid = item.ItemDbId;
+            itemDB.itemDbID = item.ItemDbId;
             itemDB.description = item.Description;
             
             return itemDB;
@@ -164,7 +184,7 @@ namespace Isometric.Data
         {
             Item item = null;
             ItemDB newItem = null;
-            Managers.Data.ItemDBDict.TryGetValue(itemDB.itemDbid, out newItem);
+            Managers.Data.ItemDBDict.TryGetValue(itemDB.itemDbID, out newItem);
 
             if(newItem == null)
             {
@@ -175,16 +195,16 @@ namespace Isometric.Data
             switch (newItem.itemType)
             {
                 case Enums.ItemType.Weapon:
-                    item = new Weapon(newItem.itemDbid);
+                    item = new Weapon(newItem.itemTemplateID, newItem.itemDbID);
                     break;
                 case Enums.ItemType.Armor:
-                    item = new Armor(newItem.itemDbid);
+                    item = new Armor(newItem.itemTemplateID, newItem.itemDbID);
                     break;
                 case Enums.ItemType.Consumable:
-                    item = new Consumable(newItem.itemDbid);
+                    item = new Consumable(newItem.itemTemplateID, newItem.itemDbID);
                     break;
                 case Enums.ItemType.Useable:
-                    item = new Useable(newItem.itemDbid);
+                    item = new Useable(newItem.itemTemplateID, newItem.itemDbID);
                     break;
             }
             
@@ -194,7 +214,7 @@ namespace Isometric.Data
                 return null;
             }
 
-            item.ItemDbId = newItem.itemDbid;
+            item.ItemDbId = newItem.itemDbID;
             return item;
         }
 
@@ -204,18 +224,18 @@ namespace Isometric.Data
     {
         public Enums.WeaponType WeaponType { get; private set; }
         public int Attack { get; private set; }
-        public Weapon(int templateid, int? DBid = null) : base(Enums.ItemType.Weapon)
+        public Weapon(int templateid, int? dbID = null) : base(Enums.ItemType.Weapon)
         {
-            Init(templateid, DBid);
+            Init(templateid, dbID);
         }
-        void Init(int templateid, int? DBid = null)
+        void Init(int templateid, int? dbID = null)
         {
             //DBid가 null로 입력받은 경우 DB 조회의 의미가 아니다
-            if (DBid == null)
+            if (dbID != null)
             {
-
+                ItemDbId = (int)dbID;
             }
-            ItemInfo itemInfo = null;
+            ItemInfo itemInfo = new WeaponInfo();
             Managers.Data.ItemInfoDict.TryGetValue(templateid, out itemInfo);
             if (itemInfo.itemType != Enums.ItemType.Weapon)
             {
@@ -239,13 +259,17 @@ namespace Isometric.Data
     {
         public Enums.ArmorType ArmorType { get; private set; }
         public int Defense { get; private set; }
-        public Armor(int templateid) : base(Enums.ItemType.Armor)
+        public Armor(int templateid, int? dbID = null) : base(Enums.ItemType.Armor)
         {
-            Init(templateid);
+            Init(templateid, dbID);
         }
-        void Init(int templateid)
+        void Init(int templateid, int? dbID = null)
         {
-            ItemInfo iteminfo = null;
+            if (dbID != null)
+            {
+                ItemDbId = (int)dbID;
+            }
+            ItemInfo iteminfo = new ArmorInfo();
             Managers.Data.ItemInfoDict.TryGetValue(templateid, out iteminfo);
             if(iteminfo.itemType != Enums.ItemType.Armor)
             {
@@ -265,13 +289,17 @@ namespace Isometric.Data
         public Enums.ConsumableType ConsumableType { get; private set; }
         public int HP { get; private set; }
         public Enums.BuffType BuffType { get; private set; }
-        public Consumable(int templateid) : base(Enums.ItemType.Consumable)
+        public Consumable(int templateid, int? dbID = null) : base(Enums.ItemType.Consumable)
         {
-            Init(templateid);
+            Init(templateid, dbID);
         }
-        void Init(int templateid)
+        void Init(int templateid, int? dbID = null)
         {
-            ItemInfo iteminfo = null;
+            if (dbID != null)
+            {
+                ItemDbId = (int)dbID;
+            }
+            ItemInfo iteminfo = new ConsumableInfo();
             Managers.Data.ItemInfoDict.TryGetValue(templateid, out iteminfo);
             if (iteminfo.itemType != Enums.ItemType.Consumable)
             {
@@ -289,15 +317,19 @@ namespace Isometric.Data
     }
     public class Useable : Item
     {
-        public Enums.UseableType Useabletype { get; private set; }
+        public Enums.UseableType Useabletype { get; private set;}
         public int Defense { get; private set; }
-        public Useable(int templateid) : base(Enums.ItemType.Useable)
+        public Useable(int templateid, int? dbID = null) : base(Enums.ItemType.Useable)
         {
-            Init(templateid);
+            Init(templateid, dbID);
         }
-        void Init(int templateid)
+        void Init(int templateid, int? dbID = null)
         {
-            ItemInfo iteminfo = null;
+            if(dbID != null)
+            {
+                ItemDbId = (int)dbID;
+            }
+            ItemInfo iteminfo = new UseableInfo();
             Managers.Data.ItemInfoDict.TryGetValue(templateid, out iteminfo);
             if (iteminfo.itemType != Enums.ItemType.Armor)
             {

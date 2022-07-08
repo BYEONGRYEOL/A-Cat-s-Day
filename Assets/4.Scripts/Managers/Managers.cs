@@ -12,6 +12,7 @@ namespace Isometric
         static Managers instance;
         static Managers Instance { get { Init(); return instance; } }
 
+
         KeyBindManager _keyBind = new KeyBindManager();
         InputManager _input = new InputManager();
         ResourceManager _resource = new ResourceManager();
@@ -22,6 +23,7 @@ namespace Isometric
         TimeManager _time = new TimeManager();
         GameManager _game = new GameManager();
         InventoryManager _inven = new InventoryManager();
+
 
         public static KeyBindManager KeyBind { get { return Instance._keyBind; } }
         public static InputManager Input { get { return Instance._input; } }
@@ -41,6 +43,7 @@ namespace Isometric
 
         void Update()
         {
+            //매니저들 중 Monobehavior를 상속받지않지만, Update와 같은 기능을 사용하고 싶은 경우
             _input.OnUpdate();
             _time.OnUpdate();
             _game.OnUpdate();
@@ -62,14 +65,13 @@ namespace Isometric
                 DontDestroyOnLoad(go);
                 instance = go.GetComponent<Managers>();
 
+                //Managers 스크립트가 초괴화될때는
                 instance._pool.Init();
                 
                 instance._data.Init();
                 
                 instance._keyBind.Init();
 
-                instance._inven.Init();
-                
             }
         }
         public static void Clear()

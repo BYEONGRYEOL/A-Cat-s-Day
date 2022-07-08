@@ -33,7 +33,7 @@ namespace Isometric.Data
             {
                 //구별되는 key 가 뭔지 생각하고 쓰자
                 dict.Add(stat.level, stat);
-                Debug.Log(stat);
+
             }
             return dict;
         }

@@ -25,6 +25,9 @@ namespace Isometric
             base.Init();
             StartCoroutine(LoadJson());
             Managers.UI.ShowSceneUI<UI_MainMenu>();
+
+            //메인메뉴가 켜졌을 때, 게임 안 인벤토리에서 DB검색 후 인벤토리 초기화
+            
         }
 
     }

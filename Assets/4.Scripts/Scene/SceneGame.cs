@@ -13,6 +13,7 @@ namespace Isometric
         protected override void Init()
         {
             base.Init();
+            Managers.Inven.LoadItem();
             Debug.Log("GameScene Load!");
             SceneType = Enums.Scene.SceneGame;
         }

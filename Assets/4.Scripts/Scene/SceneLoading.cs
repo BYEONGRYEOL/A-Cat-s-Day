@@ -14,6 +14,7 @@ namespace Isometric
         {
             base.Init();
 
+            //매니저를 처음 불러와 실행함으로써 초기화
             Managers.UI.ShowSceneUI<UI_Loading>();
             Debug.Log("설마이게두번?");
         }

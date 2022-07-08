@@ -93,6 +93,7 @@ namespace Isometric.Data
                 return true;
             }
         }
+
         public void MakeJsontoDict()
         {
             Debug.Log("Datamanager : MakeJsontoDict 실행");
@@ -106,6 +107,7 @@ namespace Isometric.Data
         {
             // 리스트 형식의 게임 리소스데이터를 들고있으려면 이걸실행
         }
+
         //Resouce/Data/여기에 데이터를 받아올 해당 CSV 파일이 있어야함
         Loader LoadJson<Loader, list>(string path) where Loader : ILoaderList<list>
         {
@@ -115,7 +117,6 @@ namespace Isometric.Data
         Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoaderDict<Key, Value>
         {
             TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
-            
             return JsonUtility.FromJson<Loader>(textAsset.text);
         }
         

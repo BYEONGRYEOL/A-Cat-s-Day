@@ -12,9 +12,8 @@ public class CSVtoJson
     public static bool ConvertCsvFileToJsonObject(string filename)
     {
         string json_name = filename + "json";
-        
-        string json_path = $"C:/Users/lyulb.DESKTOP-JTFKSJ9/Desktop/Unity Projects/Isometric/Assets/Resources/Data/{json_name}.json";
-        string csv_path = $"C:/Users/lyulb.DESKTOP-JTFKSJ9/Desktop/Unity Projects/Isometric/Assets/Resources/Data/{filename}.csv";
+        string json_path = $"C:/Users/sbl/Isometric/Assets/Resources/Data/{json_name}.json";
+        string csv_path = $"C:/Users/sbl/Isometric/Assets/Resources/Data/{filename}.csv";
         if (File.Exists(json_path))
         {
             Debug.Log($"{json_name}.json already exists");

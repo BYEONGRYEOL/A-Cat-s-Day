@@ -34,6 +34,7 @@ namespace Isometric.Data
         }
         public void LoadItem()
         {
+            Debug.Log(Managers.Data.ItemDBDict.Count + "DataManager의 ItemDB딕셔너리 개수");
             foreach (ItemDB itemDB in Managers.Data.ItemDBDict.Values)
             {
                 Add(Item.GetItemFromDB(itemDB));
@@ -53,7 +54,6 @@ namespace Isometric.Data
             Items.TryGetValue(itemDbid, out item);
             return item;
         }
-
         public Item Find(Func<Item, bool> condition)
         {
             foreach(Item item in Items.Values)
