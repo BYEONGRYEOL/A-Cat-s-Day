@@ -8,12 +8,12 @@ namespace Isometric.Data
     public struct ItemInfos
     {
         public ItemInfo itemInfo;
-        public ItemDB itemDB;
+        public ItemData itemDB;
     }
 
     public class Item
     {
-        public ItemDB itemDB { get; } = new ItemDB();
+        public ItemData itemDB { get; } = new ItemData();
         public ItemInfo itemInfo { get; } = new ItemInfo();
 
         public int ItemDbId { get => itemDB.itemDbID; set => itemDB.itemDbID = value; }
@@ -63,7 +63,7 @@ namespace Isometric.Data
             //itemDB에서 검색이 된 경우로, 가지고있는 아이템을 획득한경우이다.
             //장비 등과 같이 non-Stackable한 아이템일수도, Stackable 하지만 최대개수만큼 가지고있을 수도 있다.
 
-            foreach(KeyValuePair<int, ItemDB> kv  in Managers.Data.ItemDBDict)
+            foreach(KeyValuePair<int, ItemData> kv  in Managers.Data.ItemDBDict)
             {
                 if(kv.Value.itemTemplateID == templateID && kv.Value.count < infos.itemInfo.maxCount)
                 {
@@ -124,9 +124,9 @@ namespace Isometric.Data
         }
 
         
-        public static ItemDB ItemToDB(Item item)
+        public static ItemData ItemToDB(Item item)
         {
-            ItemDB itemDB = new ItemDB();
+            ItemData itemDB = new ItemData();
             int? newSlot = Managers.Inven.FindEmptySlot();
             if (newSlot == null)
             {
@@ -143,7 +143,7 @@ namespace Isometric.Data
 
                     itemDB.itemType = item.ItemType;
                     Weapon weapon = (Weapon)item;
-                    WeaponDB weaponDB = (WeaponDB)itemDB;
+                    WeaponData weaponDB = (WeaponData)itemDB;
                     weaponDB.weaponType = weapon.WeaponType;
                     weaponDB.attack = weapon.Attack;
                     break;
@@ -151,7 +151,7 @@ namespace Isometric.Data
 
                     itemDB.itemType = item.ItemType;
                     Armor armor = (Armor)item;
-                    ArmorDB armorDB = (ArmorDB)itemDB;
+                    ArmorData armorDB = (ArmorData)itemDB;
                     armorDB.armorType = armor.ArmorType;
                     armorDB.defense = armor.Defense;
                     break;
@@ -159,7 +159,7 @@ namespace Isometric.Data
 
                     itemDB.itemType = item.ItemType;
                     Consumable consumable = (Consumable)item;
-                    ConsumableDB consumableDB = (ConsumableDB)itemDB;
+                    ConsumableData consumableDB = (ConsumableData)itemDB;
                     consumableDB.consumableType = consumable.ConsumableType;
                     consumableDB.buffType = consumable.BuffType;
                     break;
@@ -168,7 +168,7 @@ namespace Isometric.Data
 
                     itemDB.itemType = item.ItemType;
                     Useable useable = (Useable)item;
-                    UseableDB useableDB = (UseableDB)itemDB;
+                    UseableData useableDB = (UseableData)itemDB;
                     useableDB.useableType = useable.Useabletype;
 
                     break;
@@ -180,10 +180,10 @@ namespace Isometric.Data
             
             return itemDB;
         }
-        public static Item GetItemFromDB(ItemDB itemDB)
+        public static Item GetItemFromDB(ItemData itemDB)
         {
             Item item = null;
-            ItemDB newItem = null;
+            ItemData newItem = null;
             Managers.Data.ItemDBDict.TryGetValue(itemDB.itemDbID, out newItem);
 
             if(newItem == null)
@@ -235,20 +235,21 @@ namespace Isometric.Data
             {
                 ItemDbId = (int)dbID;
             }
-            ItemInfo itemInfo = new WeaponInfo();
-            Managers.Data.ItemInfoDict.TryGetValue(templateid, out itemInfo);
+            
+            WeaponInfo weaponInfo = new WeaponInfo();
+            Managers.Data.WeaponInfoDict.TryGetValue(templateid, out weaponInfo);
             if (itemInfo.itemType != Enums.ItemType.Weapon)
             {
                 //크래쉬
                 return;
             }
-
-            WeaponInfo newData = (WeaponInfo)itemInfo;
+            
+            weaponInfo = (WeaponInfo)itemInfo;
             {
-                ItemTemplateId = newData.itemTemplateid;
+                ItemTemplateId = weaponInfo.itemTemplateid;
                 Count = 1;
-                WeaponType = newData.weaponType;
-                Attack = newData.attack;
+                WeaponType = weaponInfo.weaponType;
+                Attack = weaponInfo.attack;
                 Stackable = false;
             }
         }
@@ -269,18 +270,17 @@ namespace Isometric.Data
             {
                 ItemDbId = (int)dbID;
             }
-            ItemInfo iteminfo = new ArmorInfo();
-            Managers.Data.ItemInfoDict.TryGetValue(templateid, out iteminfo);
-            if(iteminfo.itemType != Enums.ItemType.Armor)
+            ArmorInfo armorInfo = new ArmorInfo();
+            Managers.Data.ArmorInfoDict.TryGetValue(templateid, out armorInfo);
+            if(armorInfo.itemType != Enums.ItemType.Armor)
             {
                 //크래쉬 아마 database가 잘못되었을 가능성 높음
                 return;
             }
-            ArmorInfo newData = (ArmorInfo)iteminfo;
-            ItemTemplateId = newData.itemTemplateid;
+            ItemTemplateId = armorInfo.itemTemplateid;
             Count = 1;
-            ArmorType = newData.armorType;
-            Defense = newData.defense;
+            ArmorType = armorInfo.armorType;
+            Defense = armorInfo.defense;
             Stackable = false;
         }
     }
@@ -299,19 +299,18 @@ namespace Isometric.Data
             {
                 ItemDbId = (int)dbID;
             }
-            ItemInfo iteminfo = new ConsumableInfo();
-            Managers.Data.ItemInfoDict.TryGetValue(templateid, out iteminfo);
-            if (iteminfo.itemType != Enums.ItemType.Consumable)
+            ConsumableInfo consumableInfo = new ConsumableInfo();
+            Managers.Data.ConsumableInfoDict.TryGetValue(templateid, out consumableInfo);
+            if (consumableInfo.itemType != Enums.ItemType.Consumable)
             {
                 //크래쉬 아마 database가 잘못되었을 가능성 높음
                 return;
             }
-            ConsumableInfo newData = (ConsumableInfo)iteminfo;
-            ItemTemplateId = newData.itemTemplateid;
+            ItemTemplateId = consumableInfo.itemTemplateid;
             Count = 1;
-            ConsumableType = newData.consumableType;
-            BuffType = newData.buffType;
-            HP = newData.hp;
+            ConsumableType = consumableInfo.consumableType;
+            BuffType = consumableInfo.buffType;
+            HP = consumableInfo.hp;
             Stackable = false;
         }
     }
@@ -329,17 +328,16 @@ namespace Isometric.Data
             {
                 ItemDbId = (int)dbID;
             }
-            ItemInfo iteminfo = new UseableInfo();
-            Managers.Data.ItemInfoDict.TryGetValue(templateid, out iteminfo);
-            if (iteminfo.itemType != Enums.ItemType.Armor)
+            UseableInfo useableInfo = new UseableInfo();
+            Managers.Data.UseableInfo.TryGetValue(templateid, out useableInfo);
+            if (useableInfo.itemType != Enums.ItemType.Armor)
             {
                 //크래쉬 아마 database가 잘못되었을 가능성 높음
                 return;
             }
-            UseableInfo newData = (UseableInfo)iteminfo;
-            ItemTemplateId = newData.itemTemplateid;
+            ItemTemplateId = useableInfo.itemTemplateid;
             Count = 1;
-            Useabletype = newData.useableType;
+            Useabletype = useableInfo.useableType;
             Stackable = false;
         }
     }

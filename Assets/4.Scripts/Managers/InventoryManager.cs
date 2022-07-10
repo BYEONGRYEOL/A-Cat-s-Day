@@ -35,7 +35,7 @@ namespace Isometric.Data
         public void LoadItem()
         {
             Debug.Log(Managers.Data.ItemDBDict.Count + "DataManager의 ItemDB딕셔너리 개수");
-            foreach (ItemDB itemDB in Managers.Data.ItemDBDict.Values)
+            foreach (ItemData itemDB in Managers.Data.ItemDBDict.Values)
             {
                 Add(Item.GetItemFromDB(itemDB));
             }

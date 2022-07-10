@@ -7,7 +7,7 @@ namespace Isometric.Data
 {
 
     [Serializable]
-    public class ItemDB : Data
+    public class ItemData : Data
     {
         public int itemDbID;
         public int itemTemplateID;
@@ -18,20 +18,20 @@ namespace Isometric.Data
         public Enums.ItemType itemType;
     }
     [Serializable]
-    public class WeaponDB : ItemDB 
+    public class WeaponData : ItemData 
     {
         public Enums.WeaponType weaponType;
         public int attack;
         
     }
     [Serializable]
-    public class ArmorDB : ItemDB
+    public class ArmorData : ItemData
     {
         public Enums.ArmorType armorType;
         public int defense;
     }
     [Serializable]
-    public class ConsumableDB : ItemDB
+    public class ConsumableData : ItemData
     {
         
         public Enums.ConsumableType consumableType;
@@ -39,24 +39,24 @@ namespace Isometric.Data
         public Enums.BuffType buffType;
     }
     [Serializable]
-    public class UseableDB : ItemDB
+    public class UseableData : ItemData
     {
         public Enums.UseableType useableType;
     }
 
     [Serializable]
-    public class ItemDBData : ILoaderDict<int, ItemDB>
+    public class ItemLoader : ILoaderDict<int, ItemData>
     {
-        public List<WeaponDB> WeaponDB = new List<WeaponDB>();
-        public List<ArmorDB> ArmorDB = new List<ArmorDB>();
-        public List<ConsumableDB> ConsumableDB = new List<ConsumableDB>();
-        public List<UseableDB> UseableDB = new List<UseableDB>();
+        public List<WeaponData> WeaponDB = new List<WeaponData>();
+        public List<ArmorData> ArmorDB = new List<ArmorData>();
+        public List<ConsumableData> ConsumableDB = new List<ConsumableData>();
+        public List<UseableData> UseableDB = new List<UseableData>();
 
-        public Dictionary<int, ItemDB> MakeDict()
+        public Dictionary<int, ItemData> MakeDict()
         {
             Debug.Log("ItemDBData MakeDict 실행");
-            Dictionary<int, ItemDB> ItemDB = new Dictionary<int, ItemDB>();
-            foreach(ItemDB item in WeaponDB)
+            Dictionary<int, ItemData> ItemDB = new Dictionary<int, ItemData>();
+            foreach(ItemData item in WeaponDB)
             {
                 Debug.Log("WeaponDB 조회");
                 Debug.Log(item.itemDbID + "DB ID" + item + "아이템");
@@ -64,7 +64,7 @@ namespace Isometric.Data
                 item.itemType = Enums.ItemType.Weapon;
                 ItemDB.Add(item.itemDbID, item);
             }
-            foreach (ItemDB item in ArmorDB)
+            foreach (ItemData item in ArmorDB)
             {
                 Debug.Log("WeaponDB 조회");
                 Debug.Log(item.itemDbID + "DB ID" + item + "아이템");
@@ -72,7 +72,7 @@ namespace Isometric.Data
                 ItemDB.Add(item.itemDbID, item);
 
             }
-            foreach (ItemDB item in ConsumableDB)
+            foreach (ItemData item in ConsumableDB)
             {
                 Debug.Log("WeaponDB 조회");
                 Debug.Log(item.itemDbID + "DB ID" + item + "아이템");
@@ -80,7 +80,7 @@ namespace Isometric.Data
                 ItemDB.Add(item.itemDbID, item);
 
             }
-            foreach (ItemDB item in UseableDB)
+            foreach (ItemData item in UseableDB)
             {
                 Debug.Log("WeaponDB 조회");
                 Debug.Log(item.itemDbID + "DB ID" + item + "아이템");

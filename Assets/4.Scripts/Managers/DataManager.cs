@@ -39,7 +39,7 @@ namespace Isometric.Data
         public Dictionary<int, ArmorInfo> ArmorInfoDict { get; private set; } = new Dictionary<int, ArmorInfo>();
         public Dictionary<int, ConsumableInfo> ConsumableInfoDict { get; private set; } = new Dictionary<int, ConsumableInfo>();
         public Dictionary<int, UseableInfo> UseableInfo { get; private set; } = new Dictionary<int, UseableInfo>();
-        public Dictionary<int, ItemDB> ItemDBDict { get; private set; } = new Dictionary<int, ItemDB>();
+        public Dictionary<int, ItemData> ItemDBDict { get; private set; } = new Dictionary<int, ItemData>();
 
 
         public void Init()
@@ -100,7 +100,7 @@ namespace Isometric.Data
             PlayerStatDict = LoadJson<PlayerStatData, int, PlayerStat>("PlayerStatjson").MakeDict();
             EnemyStatDict = LoadJson<EnemyStatData, int, EnemyStat>("EnemyStatjson").MakeDict();
             ItemInfoDict = LoadJson<ItemInfoData, int, ItemInfo>("ItemInfojson").MakeDict();
-            ItemDBDict = LoadJson<ItemDBData, int, ItemDB>("ItemDBjson").MakeDict();
+            ItemDBDict = LoadJson<ItemLoader, int, ItemData>("ItemDBjson").MakeDict();
         }
 
         public void MakeJsontoList()
