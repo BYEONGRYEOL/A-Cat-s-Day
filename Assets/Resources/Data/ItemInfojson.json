@@ -1,1 +1,58 @@
-{"ItemInfo":[{"itemTemplateid":"1","name":"apple","description":"사과","size":"1","maxCount":"20","itemType":"3","detailedType":"2"},{"itemTemplateid":"2","name":"sword","description":"칼","size":"1","maxCount":"1","itemType":"1","detailedType":"2"},{"itemTemplateid":"3","name":"shield","description":"방어구","size":"1","maxCount":"1","itemType":"2","detailedType":"2"},{"itemTemplateid":"4","name":"shoes","description":"신발","size":"1","maxCount":"1","itemType":"2","detailedType":"3"},{"itemTemplateid":"5","name":"potion","description":"포션","size":"1","maxCount":"20","itemType":"3","detailedType":"1"},{"itemTemplateid":"6","name":"abc","description":"투척무기라고치자","size":"2","maxCount":"20","itemType":"4","detailedType":"2"}]}
+{
+  "ItemInfo": [
+    {
+      "itemTemplateid": "1",
+      "name": "apple",
+      "description": "사과",
+      "size": "1",
+      "maxCount": "20",
+      "resourcePath": "New/Test/Fantastic UI Starter Pack_7",
+      "itemType": "3"
+    },
+    {
+      "itemTemplateid": "2",
+      "name": "sword",
+      "description": "칼",
+      "size": "1",
+      "maxCount": "1",
+      "resourcePath": "New/Test/Fantastic UI Starter Pack_8",
+      "itemType": "1"
+    },
+    {
+      "itemTemplateid": "3",
+      "name": "shield",
+      "description": "방어구",
+      "size": "1",
+      "maxCount": "1",
+      "resourcePath": "New/Test/Fantastic UI Starter Pack_9",
+      "itemType": "2"
+    },
+    {
+      "itemTemplateid": "4",
+      "name": "shoes",
+      "description": "신발",
+      "size": "1",
+      "maxCount": "1",
+      "resourcePath": "New/Test/Fantastic UI Starter Pack_10",
+      "itemType": "2"
+    },
+    {
+      "itemTemplateid": "5",
+      "name": "potion",
+      "description": "포션",
+      "size": "1",
+      "maxCount": "20",
+      "resourcePath": "New/Test/Fantastic UI Starter Pack_11",
+      "itemType": "3"
+    },
+    {
+      "itemTemplateid": "6",
+      "name": "abc",
+      "description": "투척무기라고치자",
+      "size": "2",
+      "maxCount": "20",
+      "resourcePath": "New/Test/Fantastic UI Starter Pack_12",
+      "itemType": "4"
+    }
+  ]
+}

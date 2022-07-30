@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 6866430405859213858, guid: ecf3db4a76babd842b59363b26cb8dc7, type: 3}
   - {fileID: 1336589516839896950, guid: ecf3db4a76babd842b59363b26cb8dc7, type: 3}
   - {fileID: 3404309094385385695, guid: ecf3db4a76babd842b59363b26cb8dc7, type: 3}
-  timeBtwStages: 0.5
+  timeBtwStages: 2

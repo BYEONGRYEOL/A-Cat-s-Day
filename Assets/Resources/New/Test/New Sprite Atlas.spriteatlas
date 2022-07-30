@@ -1,0 +1,318 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -148571603, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1295368529, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 774220386, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1023198675, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1159823065, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1678528037, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -709453396, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 323218441, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 921022790, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -764330412, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 2001652902, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1805952327, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 726876849, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -401854077, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 84895619, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1060647390, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1707866917, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1343624046, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 283779539, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -797889972, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1295251532, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 242909000, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -2060867429, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -494976587, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1020200721, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -379917516, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -2092027802, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 972414086, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 726983936, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1733726317, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 32122139, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1755251719, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 825894546, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1535031019, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1191669185, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -798987518, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1076558563, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -735149633, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -56973612, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 148221668, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -49947303, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 2131033864, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 369075822, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 486530678, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1337612533, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 269012936, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1358457263, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 383709939, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -846426914, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 590121358, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1334626907, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1470026826, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 766595532, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1887519310, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1069714168, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1976642730, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1921730603, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -118387202, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1228574490, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1069694636, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1298955902, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 192585335, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -2079284728, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1224344996, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 131123127, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -396691981, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1009234485, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -2086342399, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 236783342, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1951680136, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -371514030, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1235826575, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 609154577, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1163638592, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1701445063, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1785326879, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1854305388, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 815221609, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 484876427, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 674434713, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -795746786, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -847358955, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 112911519, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1612185696, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 835091624, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 543892624, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -983692485, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 232688457, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1952585663, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1048959042, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 959559378, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1499285640, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -73716895, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1682188730, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1049113726, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1715678546, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 2037688913, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1816333787, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 870580288, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 543339688, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 851933597, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -511981272, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 818576005, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 2054596024, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 515179593, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1187712568, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1727874117, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1476568605, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1049646381, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -2143883629, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1138078579, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -678157174, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1633161129, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1656075503, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1327096239, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1022943997, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 185430455, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1814995044, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1145929116, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 23178308, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -791673714, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 549527666, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1086441696, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1018857874, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -449220531, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1055571276, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1825501732, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1086754658, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1412490311, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1071749609, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1395916712, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1363160110, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 2104910052, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1379540663, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 1857799594, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: -1752931759, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  - {fileID: 482494979, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Fantastic UI Starter Pack_63
+  - Fantastic UI Starter Pack_62
+  - Fantastic UI Starter Pack_9
+  - Fantastic UI Starter Pack_8
+  - Fantastic UI Starter Pack_1
+  - Fantastic UI Starter Pack_0
+  - Fantastic UI Starter Pack_3
+  - Fantastic UI Starter Pack_2
+  - Fantastic UI Starter Pack_5
+  - Fantastic UI Starter Pack_4
+  - Fantastic UI Starter Pack_7
+  - Fantastic UI Starter Pack_6
+  - Fantastic UI Starter Pack_131
+  - Fantastic UI Starter Pack_130
+  - Fantastic UI Starter Pack_133
+  - Fantastic UI Starter Pack_132
+  - Fantastic UI Starter Pack_135
+  - Fantastic UI Starter Pack_134
+  - Fantastic UI Starter Pack_136
+  - Fantastic UI Starter Pack_21
+  - Fantastic UI Starter Pack_20
+  - Fantastic UI Starter Pack_23
+  - Fantastic UI Starter Pack_22
+  - Fantastic UI Starter Pack_25
+  - Fantastic UI Starter Pack_24
+  - Fantastic UI Starter Pack_27
+  - Fantastic UI Starter Pack_26
+  - Fantastic UI Starter Pack_29
+  - Fantastic UI Starter Pack_28
+  - Fantastic UI Starter Pack_38
+  - Fantastic UI Starter Pack_39
+  - Fantastic UI Starter Pack_36
+  - Fantastic UI Starter Pack_37
+  - Fantastic UI Starter Pack_34
+  - Fantastic UI Starter Pack_35
+  - Fantastic UI Starter Pack_32
+  - Fantastic UI Starter Pack_33
+  - Fantastic UI Starter Pack_30
+  - Fantastic UI Starter Pack_31
+  - Fantastic UI Starter Pack_108
+  - Fantastic UI Starter Pack_109
+  - Fantastic UI Starter Pack_119
+  - Fantastic UI Starter Pack_118
+  - Fantastic UI Starter Pack_100
+  - Fantastic UI Starter Pack_90
+  - Fantastic UI Starter Pack_101
+  - Fantastic UI Starter Pack_91
+  - Fantastic UI Starter Pack_102
+  - Fantastic UI Starter Pack_92
+  - Fantastic UI Starter Pack_103
+  - Fantastic UI Starter Pack_113
+  - Fantastic UI Starter Pack_93
+  - Fantastic UI Starter Pack_83
+  - Fantastic UI Starter Pack_104
+  - Fantastic UI Starter Pack_112
+  - Fantastic UI Starter Pack_128
+  - Fantastic UI Starter Pack_94
+  - Fantastic UI Starter Pack_82
+  - Fantastic UI Starter Pack_54
+  - Fantastic UI Starter Pack_105
+  - Fantastic UI Starter Pack_111
+  - Fantastic UI Starter Pack_129
+  - Fantastic UI Starter Pack_95
+  - Fantastic UI Starter Pack_81
+  - Fantastic UI Starter Pack_55
+  - Fantastic UI Starter Pack_106
+  - Fantastic UI Starter Pack_110
+  - Fantastic UI Starter Pack_126
+  - Fantastic UI Starter Pack_96
+  - Fantastic UI Starter Pack_80
+  - Fantastic UI Starter Pack_56
+  - Fantastic UI Starter Pack_107
+  - Fantastic UI Starter Pack_117
+  - Fantastic UI Starter Pack_127
+  - Fantastic UI Starter Pack_97
+  - Fantastic UI Starter Pack_87
+  - Fantastic UI Starter Pack_57
+  - Fantastic UI Starter Pack_47
+  - Fantastic UI Starter Pack_116
+  - Fantastic UI Starter Pack_124
+  - Fantastic UI Starter Pack_98
+  - Fantastic UI Starter Pack_86
+  - Fantastic UI Starter Pack_18
+  - Fantastic UI Starter Pack_50
+  - Fantastic UI Starter Pack_46
+  - Fantastic UI Starter Pack_115
+  - Fantastic UI Starter Pack_125
+  - Fantastic UI Starter Pack_99
+  - Fantastic UI Starter Pack_85
+  - Fantastic UI Starter Pack_19
+  - Fantastic UI Starter Pack_51
+  - Fantastic UI Starter Pack_45
+  - Fantastic UI Starter Pack_114
+  - Fantastic UI Starter Pack_122
+  - Fantastic UI Starter Pack_84
+  - Fantastic UI Starter Pack_52
+  - Fantastic UI Starter Pack_44
+  - Fantastic UI Starter Pack_123
+  - Fantastic UI Starter Pack_53
+  - Fantastic UI Starter Pack_43
+  - Fantastic UI Starter Pack_120
+  - Fantastic UI Starter Pack_42
+  - Fantastic UI Starter Pack_78
+  - Fantastic UI Starter Pack_121
+  - Fantastic UI Starter Pack_89
+  - Fantastic UI Starter Pack_41
+  - Fantastic UI Starter Pack_79
+  - Fantastic UI Starter Pack_88
+  - Fantastic UI Starter Pack_40
+  - Fantastic UI Starter Pack_10
+  - Fantastic UI Starter Pack_58
+  - Fantastic UI Starter Pack_11
+  - Fantastic UI Starter Pack_59
+  - Fantastic UI Starter Pack_69
+  - Fantastic UI Starter Pack_12
+  - Fantastic UI Starter Pack_72
+  - Fantastic UI Starter Pack_68
+  - Fantastic UI Starter Pack_13
+  - Fantastic UI Starter Pack_73
+  - Fantastic UI Starter Pack_14
+  - Fantastic UI Starter Pack_70
+  - Fantastic UI Starter Pack_15
+  - Fantastic UI Starter Pack_49
+  - Fantastic UI Starter Pack_71
+  - Fantastic UI Starter Pack_65
+  - Fantastic UI Starter Pack_16
+  - Fantastic UI Starter Pack_48
+  - Fantastic UI Starter Pack_76
+  - Fantastic UI Starter Pack_64
+  - Fantastic UI Starter Pack_17
+  - Fantastic UI Starter Pack_77
+  - Fantastic UI Starter Pack_67
+  - Fantastic UI Starter Pack_74
+  - Fantastic UI Starter Pack_66
+  - Fantastic UI Starter Pack_75
+  - Fantastic UI Starter Pack_61
+  - Fantastic UI Starter Pack_60
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0

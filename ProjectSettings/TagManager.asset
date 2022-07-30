@@ -47,9 +47,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: Ground
     uniqueID: 170222587
     locked: 0
-  - name: New Layer
+  - name: 1f
     uniqueID: 3982652737
+    locked: 0
+  - name: 2f
+    uniqueID: 2603516871
+    locked: 0
+  - name: 3f
+    uniqueID: 1486850789
+    locked: 0
+  - name: 4f
+    uniqueID: 144209091
+    locked: 0
+  - name: 5f
+    uniqueID: 3958107789
+    locked: 0
+  - name: Articles
+    uniqueID: 2826969733
+    locked: 0
+  - name: New Layer 8
+    uniqueID: 3643364519
+    locked: 0
+  - name: Player
+    uniqueID: 4057279747
     locked: 0
