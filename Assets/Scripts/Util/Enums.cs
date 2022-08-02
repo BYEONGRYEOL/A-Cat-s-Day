@@ -133,7 +133,9 @@ public class Enums
     public enum UIEvent
     {
         Click,
-        Drag
+        BeginDrag,
+        EndDrag,
+        Drag,
     }
 
     public enum MouseEvent 

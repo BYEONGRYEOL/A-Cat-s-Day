@@ -52,9 +52,15 @@ namespace Isometric.UI
                     myEvent.OnDragHandler -= action;
                     myEvent.OnDragHandler += action;
                     break;
+                case Enums.UIEvent.BeginDrag:
+                    myEvent.OnBeginDragHandler -= action;
+                    myEvent.OnBeginDragHandler += action;
+                    break;
+                case Enums.UIEvent.EndDrag:
+                    myEvent.OnEndDragHandler -= action;
+                    myEvent.OnEndDragHandler += action;
+                    break;
             }
-
-
         }
 
         public virtual void Init()

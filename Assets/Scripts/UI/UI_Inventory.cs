@@ -24,9 +24,6 @@ namespace Isometric.UI
             Managers.Inven.LoadItem();
             Slots.Clear();
             SlotInit();
-
-            
-            
         }
 
         public void SlotInit()

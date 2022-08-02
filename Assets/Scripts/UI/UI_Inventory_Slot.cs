@@ -20,6 +20,7 @@ namespace Isometric.UI
         {
             //BindEvent
             BindEvent(this.gameObject, PointerEventData => IconDragging(), type:Enums.UIEvent.Drag);
+            
         }
 
         public void IconDragging()
