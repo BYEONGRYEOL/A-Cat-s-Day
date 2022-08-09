@@ -65,7 +65,6 @@ namespace Isometric.UI
 
         public virtual void Init()
         {
-
         }
         protected T Get<T>(int index) where T : UnityEngine.Object
         {

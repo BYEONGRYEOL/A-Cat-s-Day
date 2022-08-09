@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Isometric.Data;
+
 namespace Isometric.UI
 {
 
     public class UI_Inventory_Slot : UI_Base
-    { 
+    {
+        private GraphicRaycaster gr;
+        private int slotNum;
+        public int SlotNum { get => slotNum; set => slotNum = value; }
         public Image icon;
         private bool hasItem = false;
         public bool HasItem { get { return hasItem; } set { hasItem = value; } }
@@ -18,22 +23,76 @@ namespace Isometric.UI
         }
         public override void Init()
         {
+            gr = GetComponent<GraphicRaycaster>();
+            RectTransform rectTransform = GetComponent<RectTransform>();
+            
+            
             //BindEvent
-            BindEvent(this.gameObject, PointerEventData => IconDragging(), type:Enums.UIEvent.Drag);
+            BindEvent(this.gameObject, PointerEventData => IconDrag(), type:Enums.UIEvent.Drag);
+            BindEvent(this.gameObject, PointerEventDAta => IconBeginDrag(), type: Enums.UIEvent.BeginDrag);
+            BindEvent(this.gameObject, PointerEventData => IconEndDrag(), type: Enums.UIEvent.EndDrag);
             
         }
 
-        public void IconDragging()
+        public void IconBeginDrag()
+        {
+            CursorController.Instance.BeginDragSlot = slotNum;
+        }
+        public void IconEndDrag()
+        {
+            var ped = new PointerEventData(null);
+            ped.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            gr.Raycast(ped, results);
+            for(int i = 0; i < results.Count; i++)
+            {
+                Debug.Log(results[i].gameObject.name);
+            }
+            
+            //아무 UI에도 닿지않은 마우스 포지션
+            if(results.Count <= 0)
+            {
+                return;
+            }
+            //드롭 시 몇번 째 슬롯 칸에 멈췄는지 정보 받기
+
+            //UI_Inventory_Slot newSlot = results[0].gameObject.GetComponent<UI_Inventory_Slot>();
+            UI_Inventory_Slot newSlot = results[0].gameObject.GetComponentInParent<UI_Inventory_Slot>();
+            Debug.Log("드래그앤 드롭으로 인식한 인벤트로 슬롯의 위치 표시" + newSlot.gameObject.transform.localPosition.x + " " + newSlot.gameObject.transform.localPosition.y + " " + newSlot.gameObject.transform.localPosition.z);
+            Debug.Log("드래그 앤 드롭의 드롭 슬롯 ::: " + newSlot.SlotNum);
+            Debug.Log("드래그 앤 드롭의 시작 슬롯 ::: " + CursorController.Instance.BeginDragSlot);
+
+            if (newSlot != null)
+            {
+                Debug.Log("아이템 드래그앤 드롭 시 이 로그가 뜨지 않으면 null CHeck 당함");
+                if (newSlot.HasItem)
+                {
+                    
+                    Managers.Inven.Items[Managers.Inven.Find(x => x.Slot == newSlot.SlotNum).ItemDbId].Slot = CursorController.Instance.BeginDragSlot;
+                    Managers.Inven.Items[Managers.Inven.Find(x => x.Slot == CursorController.Instance.BeginDragSlot).ItemDbId].Slot = newSlot.SlotNum;
+
+
+                }
+                else
+                {
+                    Managers.Inven.Items[Managers.Inven.Find(x => x.Slot == CursorController.Instance.BeginDragSlot).ItemDbId].Slot = newSlot.SlotNum;
+                }
+
+            }
+
+        
+            UI_Inventory.Instance.RefreshSlot();
+        }
+        public void IconDrag()
         {
             icon.color = new Color(icon.color.r, icon.color.g, icon.color.b, 0.5f);
             CursorController.Instance.OnGrabbed(icon);
         }
+        
         public void SetItem(int templateid, int count)
         {
             Data.ItemInfo itemInfo = null;
-            Debug.Log("try to getvalue :: item templateid is ::" + templateid);
             Managers.Data.ItemInfoDict.TryGetValue(templateid, out itemInfo);
-            Debug.Log("itemInfo is ::::" + itemInfo.name );
 
             Sprite[] itemicons = Resources.LoadAll<Sprite>("New/Test/Fantastic UI Starter Pack");
             Debug.Log(itemicons +"itemicon multiple sprite 정상 로드" +itemicons.Length);

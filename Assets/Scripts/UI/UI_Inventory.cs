@@ -13,7 +13,10 @@ namespace Isometric.UI
     {
         public List<UI_Inventory_Slot> Slots { get; set; } = new List<UI_Inventory_Slot>();
 
+        private static UI_Inventory instance;
+        public static UI_Inventory Instance { get { return instance; } }
 
+        
         private void Awake()
         {
             Init();
@@ -21,6 +24,16 @@ namespace Isometric.UI
         }
         public override void Init()
         {
+            
+            if(instance != null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                instance = this;
+            }
+
             Managers.Inven.LoadItem();
             Slots.Clear();
             SlotInit();
@@ -33,10 +46,11 @@ namespace Isometric.UI
                 Destroy(child.gameObject);
 
             //인벤토리 슬롯의 총 개수를 임의로 20개로 정함
-            for (int i = 1; i < 21; i++)
+            for (int i = 0; i < 20; i++)
             {
                 GameObject go = Managers.Resource.Instantiate("UI/Items/Inventory_Slot", parent: grid.transform);
                 UI_Inventory_Slot slot = go.GetComponent<UI_Inventory_Slot>();
+                slot.SlotNum = i;
                 //초기화 
                 slot.HasItem = false;
 
@@ -52,14 +66,12 @@ namespace Isometric.UI
         {
             List<Item> items = Managers.Inven.Items.Values.ToList();
 
-            Debug.Log(items.Count);
-            Debug.Log(items[1].Name);
 
             items.Sort((left, right) => left.Slot.CompareTo(right.Slot));
             for(int i=0 ; i<items.Count; i++)
             {
-                Debug.Log("Items List Counts :: " + items.Count);
-                Debug.Log("RefreshSlot function ItemName is " + items[i].Name);
+                
+                Debug.Log("Item In Inventory ::: " + items[i].Name + " Name " + items[i].Slot + " Slot Num");
                 Slots[items[i].Slot].SetItem(items[i].ItemTemplateId, items[i].Count);
             }
         }

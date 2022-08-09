@@ -15,6 +15,8 @@ namespace Isometric
         Texture2D grabIcon;
         Camera main;
 
+        public int BeginDragSlot;
+
         public bool IsGrabbing = false;
         enum CursorType
         {
@@ -32,7 +34,7 @@ namespace Isometric
             idleIcon = Managers.Resource.Load<Texture2D>("Texture/Cursor/Cursor_Idle");
             grabIcon = Managers.Resource.Load<Texture2D>("Texture/Cursor/Cursor_Grab");
             main = Camera.main;
-            Debug.Log(main);
+            
             IsGrabbing = false;
         }
 

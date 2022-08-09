@@ -15,6 +15,7 @@ namespace Isometric.UI
         public Action<PointerEventData> OnBeginDragHandler = null;
         public Action<PointerEventData> OnDragHandler = null;
         public Action<PointerEventData> OnEndDragHandler = null;
+        public Action<PointerEventData> OnPointerUpHandler = null;
 
         public void OnBeginDrag(PointerEventData eventData)
         {

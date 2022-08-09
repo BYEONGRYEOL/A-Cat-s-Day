@@ -11,8 +11,8 @@ namespace Isometric.Data
     {
 
         //dbid 가 키야
-        public Dictionary<int, Item> Items { get; } = new Dictionary<int, Item>();
-        
+        public Dictionary<int, Item> Items = new Dictionary<int, Item>();
+
         public int NewItemDbID()
         {
             return Managers.Data.ItemDBDict.Keys.Max() + 1;
@@ -31,11 +31,11 @@ namespace Isometric.Data
         public int? FindEmptySlot()
         {
             List<int> slots = new List<int>();
-            foreach(Item items in Items.Values)
+            foreach (Item items in Items.Values)
             {
                 slots.Add(items.Slot);
             }
-            for(int i = 1; i < 21; i++)
+            for (int i = 1; i < 21; i++)
             {
                 if (!slots.Contains(i))
                 {
@@ -58,11 +58,33 @@ namespace Isometric.Data
 
             Debug.Log(Items.Count + "개의 아이템 인벤토리에 로드");
         }
+        public void SaveItem()
+        {
+            foreach (Item item in Items.Values)
+            {
+                Debug.Log("DB에 현재 Item상태를 저장시킴");
+                // Stackable 아이템의 경우 같이 소지하다가 다 사용한 경우 DB에는 Count = 0으로 표시되는 게 좋을 지 고민 중
+                // 이렇게 코딩하면 Count가 0이되어 사라진 아이템을 지우진 않음
+                Managers.Data.ItemDBDict[item.ItemDbId] = Item.ItemToDB(item);
+            }
+        }
         public void Add(Item item)
         {
             Items.Add(item.ItemDbId, item);
         }
 
+        public Item GetItemFromSlotNum(int slot)
+        {
+            Item item = null;
+            item = Items.Values.FirstOrDefault(x => x.Slot == slot);
+            if(item == null)
+            {
+                Debug.Log("item is " + item);
+                return null;
+            }
+            return item;
+        }
+        
         public Item Get(int itemDbid)
         {
             
@@ -80,6 +102,7 @@ namespace Isometric.Data
                 }
             }
             //아이템을 못찾은경우
+            Debug.Log("InvetoryManager :: FindFunction returns null");
             return null;
         }
     }
