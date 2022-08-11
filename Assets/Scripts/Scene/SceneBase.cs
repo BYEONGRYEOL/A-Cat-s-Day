@@ -9,7 +9,6 @@ namespace Isometric
         public Enums.Scene SceneType { get; protected set; } = Enums.Scene.Unknown;
         protected virtual void Init()
         {
-            Debug.Log("½ÇÇà´ë?");
             Object obj = GameObject.FindObjectOfType<EventSystem>();
             if (obj == null)
             {

@@ -15,6 +15,7 @@ namespace Isometric
         Texture2D grabIcon;
         Camera main;
 
+        private Vector3 iconOriginPosition;
         public int BeginDragSlot;
 
         public bool IsGrabbing = false;
@@ -34,7 +35,7 @@ namespace Isometric
             idleIcon = Managers.Resource.Load<Texture2D>("Texture/Cursor/Cursor_Idle");
             grabIcon = Managers.Resource.Load<Texture2D>("Texture/Cursor/Cursor_Grab");
             main = Camera.main;
-            
+            grabbingImage = null;
             IsGrabbing = false;
         }
 
@@ -42,15 +43,40 @@ namespace Isometric
         {
             UpdateCursor();
         }
-        public void OnGrabbed(Image image)
+
+        public void GraphicRaycaseTest()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
+        }
+        public void OnItemBeginDrag(Image image)
+        {
+            grabbingImage = Instantiate(image, image.transform.parent);
+            Cursor.SetCursor(grabIcon, new Vector2(grabIcon.width / 4, grabIcon.height / 4), CursorMode.Auto);
+            //icon.color = new Color(icon.color.r, icon.color.g, icon.color.b, 0.5f;
+            //GraphicRaycast 에서 뒤에 있는 UI 컴포넌트를 인식하지 못하는 오류가 나기 때문에 잠시 grabbingImage를 GR이 인식하지 못하도록 raycast target false
+            grabbingImage.GetComponent<Image>().raycastTarget = false;
+            iconOriginPosition = grabbingImage.transform.position;
+
+
+        }
+        public void OnItemDrag(Image image)
         {
             //잡고있던 마우스를 떼면 리턴
-            if (Input.GetMouseButtonUp(0))
-                return;
-            Cursor.SetCursor(grabIcon, new Vector2(grabIcon.width / 4, grabIcon.height / 4), CursorMode.Auto);
-            grabbingImage = image;
-            grabbingImage.transform.position = Input.mousePosition;
             
+            grabbingImage.transform.position = Input.mousePosition;
+            if (Input.GetMouseButtonUp(0))
+                OnItemEndDrag(image);
+        }
+        public void OnItemEndDrag(Image image)
+        {
+            //Drgging 종료시 원위치, 드래그하는동안 껐던 racasttarget 다시 true
+
+            grabbingImage.GetComponent<Image>().raycastTarget = true;
+            grabbingImage.transform.position = iconOriginPosition;
+            grabbingImage = null;
         }
         void UpdateCursor()
         {
@@ -71,5 +97,4 @@ namespace Isometric
             }
         }
     }
-
 }

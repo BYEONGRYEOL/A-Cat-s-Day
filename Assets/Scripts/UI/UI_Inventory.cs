@@ -49,6 +49,7 @@ namespace Isometric.UI
             for (int i = 0; i < 20; i++)
             {
                 GameObject go = Managers.Resource.Instantiate("UI/Items/Inventory_Slot", parent: grid.transform);
+                go.gameObject.name += i;
                 UI_Inventory_Slot slot = go.GetComponent<UI_Inventory_Slot>();
                 slot.SlotNum = i;
                 //초기화 
@@ -68,11 +69,21 @@ namespace Isometric.UI
 
 
             items.Sort((left, right) => left.Slot.CompareTo(right.Slot));
-            for(int i=0 ; i<items.Count; i++)
+            for(int i=0 ; i<Managers.Data.gameData.Inventory_capacity; i++)
             {
+                // List.FindIndex 메서드는 못찾는 경우 -1을 리턴
+
+                int slot = items.FindIndex(x => x.Slot == i);
+                if(slot < 0)
+                {
+                    Slots[i].ResetItemIcon();
+                }
+                else
+                {
+                    Slots[items[slot].Slot].SetItemIcon(items[slot].ItemTemplateId, items[slot].Count);
+                    Debug.Log("해당하는 iconslot을 찾은 경우" + i + " 번째 아이템 슬롯에 icon 표시");
+                }
                 
-                Debug.Log("Item In Inventory ::: " + items[i].Name + " Name " + items[i].Slot + " Slot Num");
-                Slots[items[i].Slot].SetItem(items[i].ItemTemplateId, items[i].Count);
             }
         }
     }

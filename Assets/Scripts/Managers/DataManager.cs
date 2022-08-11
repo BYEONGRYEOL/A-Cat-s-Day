@@ -30,6 +30,7 @@ namespace Isometric.Data
         // json방식으로 save하기위하여 필요한 json saver
         public JsonSaver jsonSaver;
         public Settings settings;
+        public GameData gameData;
 
         // CSV리소스 데이터들을 관리하기 위함
         public Dictionary<int, PlayerStatData> PlayerStatDict { get; private set; } = new Dictionary<int, PlayerStatData>();
@@ -46,6 +47,7 @@ namespace Isometric.Data
         {
             settings = new Settings();
             jsonSaver = new JsonSaver();
+            gameData = new GameData();
             //실행되자마자 CSV 파일을 참고하여 Json 파일이 있는지 없는지 체크 후 없으면 생성
 
             //CSV 파일로 관리하는 리소스데이터에 대하여 실행
@@ -139,10 +141,14 @@ namespace Isometric.Data
         public void Save()
         {
             jsonSaver.Save(settings, "Settings");
+            jsonSaver.Save(gameData, "GameData");
+
         }
         public void Load()
         {
             jsonSaver.Load(settings, "Settings");
+            jsonSaver.Load(gameData, "GameData");
+
         }
 
     }

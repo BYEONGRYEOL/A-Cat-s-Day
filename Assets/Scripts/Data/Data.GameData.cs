@@ -5,7 +5,16 @@ using System;
 
 namespace Isometric.Data
 {
-
+    [Serializable]
+    public class GameData : Data
+    {
+        private int inventory_capacity;
+        public int Inventory_capacity { get => inventory_capacity; set => inventory_capacity = value; }
+        public GameData()
+        {
+            inventory_capacity = 20;
+        }
+    }
     [Serializable]
     public class ItemData : Data
     {

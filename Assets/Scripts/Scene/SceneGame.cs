@@ -17,7 +17,6 @@ namespace Isometric
             base.Init();
             
 
-            Debug.Log("GameScene Load!");
             
             inventory = GetComponent<UI_Inventory>();
 

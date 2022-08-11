@@ -10,6 +10,7 @@ TagManager:
   - EnemyHitBox
   - PlayerHitBox
   - KeyBind
+  - Canvas_Inventory
   layers:
   - Default
   - TransparentFX

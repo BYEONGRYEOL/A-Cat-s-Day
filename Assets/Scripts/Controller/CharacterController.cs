@@ -78,7 +78,6 @@ public abstract class CharacterController : MonoBehaviour
     }
     protected virtual void Init()
     {
-        Debug.Log("init?");
         myAnimator = GetComponent<Animator>();
     }
 

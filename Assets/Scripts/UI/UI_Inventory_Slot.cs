@@ -11,6 +11,7 @@ namespace Isometric.UI
 
     public class UI_Inventory_Slot : UI_Base
     {
+        private Canvas canvas;
         private GraphicRaycaster gr;
         private int slotNum;
         public int SlotNum { get => slotNum; set => slotNum = value; }
@@ -23,7 +24,8 @@ namespace Isometric.UI
         }
         public override void Init()
         {
-            gr = GetComponent<GraphicRaycaster>();
+
+            gr = GameObject.FindGameObjectWithTag("Canvas_Inventory").GetComponent<Canvas>().GetComponent<GraphicRaycaster>();
             RectTransform rectTransform = GetComponent<RectTransform>();
             
             
@@ -36,17 +38,22 @@ namespace Isometric.UI
 
         public void IconBeginDrag()
         {
+            Debug.Log("드래그 시작한 Slot 넘버" + slotNum);
+            
             CursorController.Instance.BeginDragSlot = slotNum;
+            CursorController.Instance.OnItemBeginDrag(icon);
         }
         public void IconEndDrag()
         {
             var ped = new PointerEventData(null);
             ped.position = Input.mousePosition;
+            Debug.Log("MousePosition 위치 " + ped.position.ToString());
             List<RaycastResult> results = new List<RaycastResult>();
             gr.Raycast(ped, results);
             for(int i = 0; i < results.Count; i++)
             {
-                Debug.Log(results[i].gameObject.name);
+                Debug.Log("Raycast 결과 위치" + "result List의 " + i  + "번째 요소" + results[i].gameObject.transform.position.ToString());
+                Debug.Log("raycast 결과 이름" + i + "번째 요소 " + results[i].gameObject.name);
             }
             
             //아무 UI에도 닿지않은 마우스 포지션
@@ -56,9 +63,13 @@ namespace Isometric.UI
             }
             //드롭 시 몇번 째 슬롯 칸에 멈췄는지 정보 받기
 
-            //UI_Inventory_Slot newSlot = results[0].gameObject.GetComponent<UI_Inventory_Slot>();
-            UI_Inventory_Slot newSlot = results[0].gameObject.GetComponentInParent<UI_Inventory_Slot>();
-            Debug.Log("드래그앤 드롭으로 인식한 인벤트로 슬롯의 위치 표시" + newSlot.gameObject.transform.localPosition.x + " " + newSlot.gameObject.transform.localPosition.y + " " + newSlot.gameObject.transform.localPosition.z);
+            Debug.Log("Raycast 충돌 오브젝트 이름 ::   " +results[0].gameObject.name);
+            UI_Inventory_Slot newSlot = results[0].gameObject.transform.parent.GetComponent<UI_Inventory_Slot>();
+            Debug.Log("Getcomponentinparant" + newSlot.gameObject.name);
+            Debug.Log("Getcomponentinparant" + newSlot.gameObject.transform.position.ToString());
+           
+
+
             Debug.Log("드래그 앤 드롭의 드롭 슬롯 ::: " + newSlot.SlotNum);
             Debug.Log("드래그 앤 드롭의 시작 슬롯 ::: " + CursorController.Instance.BeginDragSlot);
 
@@ -86,10 +97,15 @@ namespace Isometric.UI
         public void IconDrag()
         {
             icon.color = new Color(icon.color.r, icon.color.g, icon.color.b, 0.5f);
-            CursorController.Instance.OnGrabbed(icon);
+            CursorController.Instance.OnItemDrag(icon);
         }
         
-        public void SetItem(int templateid, int count)
+        public void ResetItemIcon()
+        {
+            //null 보다는 기본 icon sprite가 있다면 기본값으로 하는게 좋을거같다.
+            icon.sprite = null;
+        }
+        public void SetItemIcon(int templateid, int count)
         {
             Data.ItemInfo itemInfo = null;
             Managers.Data.ItemInfoDict.TryGetValue(templateid, out itemInfo);
